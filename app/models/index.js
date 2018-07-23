@@ -9,7 +9,6 @@ console.log(config.database);
 var sequelize = new Sequelize(config.database, config.username, config.password, config);
 var db = {};
  
- 
 fs
     .readdirSync(__dirname)
     .filter(function(file) {
