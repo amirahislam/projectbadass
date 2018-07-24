@@ -26,12 +26,18 @@ module.exports = function(sequelize, DataTypes) {
         // Associate Chef with Posts
         // When a Chef is deleted, also delete any associated Posts
         Chef.hasMany(models.Post, {
-          onDelete: "cascade"
+          onDelete: "cascade",
+          // foreignKey: {
+          //   name: "chefid"
+          // }
         });
         // Associate Chef with Favorites
         // When a Chef is deleted, do not delete the Favorites as they may be other chefs' posts
         Chef.hasMany(models.Favorite, {
-          onDelete: "cascade"
+          onDelete: "cascade",
+          // foreignKey: {
+          //   name: "chefid"
+          // }
         });
 
       };

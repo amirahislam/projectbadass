@@ -32,9 +32,7 @@ module.exports = function(sequelize, DataTypes) {
       associate: function(models) {
         // A Chef (foreignKey) is required or a Post can't be made
         Post.belongsTo(models.Chef, {
-          foreignKey: {
-            allowNull: false
-          }
+          foreignKey: "chefid"
         });
       }
     }

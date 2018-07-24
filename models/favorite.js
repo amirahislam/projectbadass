@@ -13,9 +13,7 @@ module.exports = function(sequelize, DataTypes) {
         associate: function(models) {
           // A Chef (foreignKey) is required or a favorite can't be recorded
           Favorite.belongsTo(models.Chef, {
-            foreignKey: {
-              allowNull: false
-            }
+            foreignKey: "chefid"
           });
         }
       }
