@@ -6,6 +6,7 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false
       }
     },
+      
     // Associate a post with the Chef who liked it
     {
       classMethods: {
