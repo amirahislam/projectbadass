@@ -5,7 +5,7 @@ module.exports = function(db){
     db.sequelize.sync({force: true}).then(function() {
         // Create a set of test chefs
         
-        // db.Chef.findById(1)
+
         db.Chef.create(
             {
                 "name": "Travis",
@@ -13,7 +13,7 @@ module.exports = function(db){
                 "photoLink": "https://pbs.twimg.com/profile_images/839900475205955585/FMzXSOkV_400x400.jpg",
                 "about": "I am a chef."
             }
-        ).then(function() {
+        ).then(function(response) {
            console.log(response);
         })
         .catch(function(error) {
@@ -34,7 +34,7 @@ module.exports = function(db){
            console.log(error);
         });
     
-        // Create a set of test favorite posts
+        // Create a set of test invitations submitted by visitors
         db.Invite.create(
             {
                 "firstname": "Gordon",
@@ -49,4 +49,4 @@ module.exports = function(db){
            console.log(error);
         });
     });
-    }
+    };

@@ -1,5 +1,6 @@
 module.exports = function(sequelize, DataTypes) {
     var Invite = sequelize.define("Invite", {
+
       firstname: {
         type: DataTypes.STRING,
         allowNull: false,
@@ -15,7 +16,7 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
       },
-      // Post body is required, null is not allowed
+      
       email: {
         type: DataTypes.STRING,
         allowNull: false, 
@@ -24,7 +25,7 @@ module.exports = function(sequelize, DataTypes) {
         isEmail: true,
       }
       },
-      // photolink will point to the thumbnail
+      
       phonenumber: {
           type: DataTypes.STRING,
           validate: {
@@ -32,7 +33,7 @@ module.exports = function(sequelize, DataTypes) {
         }
       }
     });
-    // Associate a post with a User
+    // Associate an invite with a post
     Invite.associate = function(models) {
       Invite.belongsTo(models.Post, {
         foreignKey: {

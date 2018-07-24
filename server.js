@@ -26,7 +26,7 @@ app.use(bodyParser.text());
 // Routes
 require("./routes/chef-api-routes.js")(app);  //double check
 require("./routes/post-api-routes.js")(app); //double check
-require("./routes/favorites-api-routes.js")(app);
+require("./routes/invite-api-routes.js")(app);
 require("./routes/htmlroutes.js")(app);
 
 app.use(express.static(__dirname + '/public'));

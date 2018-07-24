@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
     photoLink: DataTypes.STRING,
     about: DataTypes.STRING
   });
-  // Associate a Chef with posts and favorites
+  // Associate a Chef with posts
     Chef.associate = function(models) {
         // Associate Chef with Posts
         // When a Chef is deleted, also delete any associated Posts

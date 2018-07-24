@@ -21,7 +21,7 @@ module.exports = function(sequelize, DataTypes) {
       type: DataTypes.STRING
     }
   });
-  // Associate a post with a User
+  // Associate a post with a Chef
   Post.associate = function(models) {
     Post.belongsTo(models.Chef, {
       foreignKey: {
