@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Page Title</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script src="jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+    
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+    <link rel="stylesheet" type="text/css" media="screen" href="/styles/styles.css" />
+            
+    {{!-- <script src="public/js/profile.js"></script> --}}
+</head>
+<body>
+
+    <div class="container" id="profilebox" >
+
+    <form>
+  <div class="form-group">
+    <label for="name">Name (Required)</label>
+    <input type="name" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter Name">
+    </div>
+    <div class="form-group">
+    <label for="pasteImage">Link to image (Required)</label>
+    <input type="putImage" class="form-control" id="inputImage" aria-describedby="nameHelp" placeholder="Paste Image Link">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlInput1">Email address</label>
+    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+  </div>
+
+
+  <label for="inlineFormInputGroupUsername2">Twitter Handle</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">@</div>
+    </div>
+
+    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+  </div>
+  
+  <label for="inlineFormInputGroupUsername2">Instagram Handle</label>
+  <div class="input-group mb-2 mr-sm-2">
+    <div class="input-group-prepend">
+      <div class="input-group-text">@</div>
+    </div>
+    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
+  </div>
+
+  <div class="form-group">
+    <label for="exampleFormControlTextarea1">About you:</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+  </div>
+   <div class="form-group">
+    <label for="exampleFormControlFile1">Upload Documents</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+  <button type="submit" class="btn btn-primary" id="submitstyle">Submit</button>
+</form>
+</div>
+
+{{!-- <div class="cont-contactBtn">
+					<div class="cont-flip">
+						<div class="front">
+							<a href="#" class="btn btn-white flip">Send Message</a>
+						</div>
+						<div class="back">
+							<a href="#" class="flip close"></a>
+							<form class="contact-form" action="">
+								<input class="gutter" type="text" placeholder="Name">
+								<input type="text" placeholder="Company">
+								<input class="gutter" type="text" placeholder="Telephone">
+								<input type="text" placeholder="Email">
+								<textarea name="" id="" placeholder="Leave a message"></textarea>
+								<input type="submit" value="Send">
+							</form>
+						</div>
+					</div> --}}
+    
+</body>
+</html>
+
+<script>
+    $(document).ready(function(){
+  $('.flip').click(function(){
+    $('.cont-flip').toggleClass('flipped');
+    return false;
+  });
+});
+</script>
