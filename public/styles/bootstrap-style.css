@@ -41,6 +41,12 @@ h1 {
   background-color: salmon;
 }
 
+#submitprofile {
+  align-content: center;
+  background-color: salmon;
+  color: white;
+}
+
 a:hover, a:active, a:focus {
   color: salmon;
   outline: none;
