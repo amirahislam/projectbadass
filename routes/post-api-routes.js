@@ -7,8 +7,8 @@ module.exports = function(app) {
 
     // If the request is specifying a particular chef
     var query = {};
-    if (req.query.chef_id) {
-      query.ChefId = req.query.chef_id;
+    if (req.query.chef) {
+      query.chefid = req.query.chef;
     }
 
     // Add a join here to include all of the chefs to these posts

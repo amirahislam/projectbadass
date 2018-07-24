@@ -8,7 +8,7 @@ module.exports = function(app) {
     // If the request is specifying a particular chef
     var query = {};
     if (req.query.chef) {
-      query.Chefid = req.query.chef;
+      query.chefid = req.query.chef;
     }
 
     // Add a join here to include all of the Chefs to these favorites
