@@ -28,7 +28,7 @@ db.sequelize.sync({force: true}).then(function() {
             "body": "This table has really good food.",
             "votes": "10",
             "chefid": "111",
-            "photoLink": "https://media.cntraveler.com/photos/57c445b265e6586e551da52a/4:3/w_480,c_limit/Chef-Passard-netflix-cr-courtesy.jpg"
+            "photolink": "https://media.cntraveler.com/photos/57c445b265e6586e551da52a/4:3/w_480,c_limit/Chef-Passard-netflix-cr-courtesy.jpg"
         }
     ).then(function(response) {
        console.log(response);
