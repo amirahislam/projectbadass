@@ -34,7 +34,7 @@ module.exports = function(passport, user) {
         var generateHash = function(password) {
           return bCrypt.hashSync(password, bCrypt.genSaltSync(8), null);
         };
-        console.log("firstname=" + req.body.firstname);
+
         User.findOne({
           where: {
             email: email
@@ -47,7 +47,7 @@ module.exports = function(passport, user) {
           } else {
             var userPassword = generateHash(password);
 
-            console.log("firstname=" + req.body.firstname);
+            console.log("email=" + email);
             var data = {
               email: email,
               password: userPassword,
@@ -55,13 +55,21 @@ module.exports = function(passport, user) {
               lastname: req.body.lastname
             };
 
-            User.create(data).then(function(newUser) {
-              if (!newUser) {
-                return done(null, false);
-              } else {
-                return done(null, newUser);
-              }
-            });
+            User.create(data)
+              .then(function(newUser) {
+                if (newUser) {
+                  // return done(null, false);
+                  return done(null, newUser);
+                } else {
+                  return done(null, false);
+                }
+              })
+              .catch(function(err) {
+                console.log("Error:", err);
+                return done(null, false, {
+                  message: "Something went wrong with your Signup"
+                });
+              });
           }
         });
       }
