@@ -7,18 +7,17 @@ module.exports = function(app) {
 
     // If the request is specifying a particular chef
     var query = {};
-    if (req.query.chef) {
-      query.chefid = req.query.chef;
+    if (req.query.chef_id) {
+      query.ChefId = req.query.chef_id;
     }
 
     // Add a join here to include all of the chefs to these posts
     db.Post.findAll({
       where: query,
-      order: [["votes", "DESC"]],
       include: [db.Chef]
     }).then(function(dbPost) {
       res.json(dbPost);
-    })
+    });
   });
 
   // Retrieve a specific post by postid
@@ -31,25 +30,16 @@ module.exports = function(app) {
       },
       include: [db.Chef]
     }).then(function(dbPost) {
-
-      // Check if the post is null, i.e no such post
-      if (dbPost === null) {
-        // Return an empty object
-        res.json({});
-      } else {
-        // Return existing post data
         res.json(dbPost);
-      }
-    })
+    });
   });
 
   // Create a new post
   app.post("/api/posts", function(req, res) {
 
-    db.Post.create(req.body)
-    .then(function(dbPost) {
+    db.Post.create(req.body).then(function(dbPost) {
       res.json(dbPost);
-    })
+    });
   });
 
   // Delete a specific post by postid
@@ -61,7 +51,7 @@ module.exports = function(app) {
       }
     }).then(function(dbPost) {
       res.json(dbPost);
-    })
+    });
   });
 
   // Update a specific post by postid
@@ -75,6 +65,6 @@ module.exports = function(app) {
         }
       }).then(function(dbPost) {
         res.json(dbPost);
-      })
+      });
   });
 };

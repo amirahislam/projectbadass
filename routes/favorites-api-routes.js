@@ -2,65 +2,59 @@
 var db = require("../models");
 
 module.exports = function(app) {
-  // Retrieve a list of all the favorites
-  app.get("/api/favorites", function(req, res) {
+  // Retrieve a list of all the people who submitted invite to post
+  app.get("/api/invites", function(req, res) {
 
-    // If the request is specifying a particular chef
+    
     var query = {};
-    if (req.query.chef) {
-      query.chefid = req.query.chef;
+    if (req.query.post) {
+      query.PostId = req.query.post_id;
     }
 
-    // Add a join here to include all of the Chefs to these favorites
-    db.Favorite.findAll({
+    // Add a join here to include all of the invites to a post
+    db.Invite.findAll({
       where: query,
-      include: [db.Chef]
+      include: [db.Post]
     })
-    .then(function(dbPost) {
-      res.json(dbPost);
+    .then(function(dbInvite) {
+      res.json(dbInvite);
     })
   });
 
-  // Retrieve a specific favorite by favoriteID
-  app.get("/api/favorites/:id", function(req, res) {
+  // Retrieve a specific submitted invitation by inviteID
+  app.get("/api/invites/:id", function(req, res) {
 
-    // Add a join here to include the Chef who wrote the Post
-    db.Favorite.findOne({
+    // Add a join here to locate a particular submitted Invite to a specific Post
+    db.Invite.findOne({
       where: {
         id: req.params.id
       },
-      include: [db.Chef]
-    }).then(function(dbPost) {
+      include: [db.Post]
+    }).then(function(dbInvite) {
 
-      // Check if the favorite is null, i.e no such favorite
-      if (dbPost === null) {
-        // Return an empty object
-        res.json({});
-      } else {
-        // Return existing favorite data
-        res.json(dbPost);
-      }
+        // Return existing invite data
+        res.json(dbInvite);
     })
   });
 
-  // Create a new favorite
-  app.post("/api/favorites", function(req, res) {
+  // Create a new invitation
+  app.post("/api/invites", function(req, res) {
 
-    db.Favorite.create(req.body)
-    .then(function(dbPost) {
-      res.json(dbPost);
+    db.Invite.create(req.body)
+    .then(function(dbInvite) {
+      res.json(dbInvite);
     })
   });
 
-  // Depete a specific favorite by favoriteID
-  app.delete("/api/favorites/:id", function(req, res) {
+  // Depete a specific invite by inviteID
+  app.delete("/api/invites/:id", function(req, res) {
 
-    db.Favorite.destroy({
+    db.Invite.destroy({
       where: {
         id: req.params.id
       }
-    }).then(function(dbPost) {
-      res.json(dbPost);
+    }).then(function(dbInvite) {
+      res.json(dbInvite);
     })
   });
 };

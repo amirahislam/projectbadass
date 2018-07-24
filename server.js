@@ -8,15 +8,6 @@ var PORT = process.env.PORT || 8080;
 
 var db = require("./models");
 
-// db.Chef.create([
-//   {
-//       "name": "Travis",
-//       "id": "111",
-//       "email": "travismargetts@gmail.com",
-//       "photoLink": "https://pbs.twimg.com/profile_images/839900475205955585/FMzXSOkV_400x400.jpg",
-//       "about": "I am a chef."
-//   },
-// ])
 var insertData = require("./schema.js")(db);
 
 // Middleware

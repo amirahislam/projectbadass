@@ -16,27 +16,18 @@ module.exports = function(sequelize, DataTypes) {
         len: [1]
       }
     },
-    // Post votes will default to zero for a new post
-    votes: {
-      type: DataTypes.INTEGER,
-      defaultValue: 0
-    },
     // photolink will point to the thumbnail
     photolink: {
-      type: DataTypes.STRING,
-    }
-  },
-  // Associate a post with a chef
-  {
-    classMethods: {
-      associate: function(models) {
-        // A Chef (foreignKey) is required or a Post can't be made
-        Post.belongsTo(models.Chef, {
-          foreignKey: "chefid"
-        });
-      }
+      type: DataTypes.STRING
     }
   });
-
-  return Post;
+  // Associate a post with a User
+  Post.associate = function(models) {
+    Post.belongsTo(models.Chef, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
+    return Post;
 };

@@ -23,15 +23,7 @@ module.exports = function(app) {
       include: [db.Post]
     })
     .then(function(dbChef) {
-
-      // Check if the chef is null, i.e no such chef
-      if (dbChef === null) {
-        // Return an empty object
-        res.json({});
-      } else {
-        // Return existing chef data
         res.json(dbChef);
-      }
     })
   });
 
