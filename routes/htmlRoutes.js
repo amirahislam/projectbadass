@@ -6,14 +6,14 @@ module.exports = function(app) {
 
     db.Example.findAll({}).then(function() {
       if (req.isAuthenticated()) {
-        res.render("index", {
+        res.render("chefprofile", {
           msg: "Welcome",
           username: req.user.email,
           isLoggedIn: true,
           notLoggedIn: false
         });
       } else {
-        res.render("index", {
+        res.render("chefprofile", {
           isLoggedIn: false,
           notLoggedIn: true
         });
