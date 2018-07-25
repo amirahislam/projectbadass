@@ -4,6 +4,25 @@ var $exampleDescription = $("#example-description");
 var $submitBtn = $("#submit");
 var $exampleList = $("#example-list");
 
+
+
+$("#chefpage").on("click", function(){
+
+
+  db.Example.findAll({}).then(function() {
+    
+      res.render("index", {
+        // msg: "Welcome",
+        // username: req.user.email,
+        // isLoggedIn: true,
+        // notLoggedIn: false
+      });
+     
+
+
+
+});
+
 // The API object contains methods for each kind of request we'll make
 var API = {
   saveExample: function(example) {
