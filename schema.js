@@ -8,7 +8,7 @@ module.exports = function(db){
 
         db.Chef.create(
             {
-                "firstname": "Travis",
+                "firstname": "test",
                 "lastname": "Margetts",
                 "username": "tmargetts",
                 "about": "I am a chef",
@@ -19,10 +19,10 @@ module.exports = function(db){
                 
             }
         ).then(function(response) {
-           console.log(response);
+           //console.log(response);
         })
         .catch(function(error) {
-           console.log(error);
+           //console.log(error);
         });
     
         // Create a set of test posts
@@ -33,10 +33,10 @@ module.exports = function(db){
                 "photolink": "https://media.cntraveler.com/photos/57c445b265e6586e551da52a/4:3/w_480,c_limit/Chef-Passard-netflix-cr-courtesy.jpg"
             }
         ).then(function(response) {
-           console.log(response);
+           //console.log(response);
         })
         .catch(function(error) {
-           console.log(error);
+           //console.log(error);
         });
     
         // Create a set of test invitations submitted by visitors

@@ -22,14 +22,14 @@ module.exports = function(sequelize, DataTypes) {
         allowNull: false, 
         unique: true,
         validate: {
-        isEmail: true,
+          isEmail: true
       }
       },
       
       phonenumber: {
           type: DataTypes.STRING,
           validate: {
-          isNumeric: true
+            isNumeric: true
         }
       }
     });
@@ -37,7 +37,7 @@ module.exports = function(sequelize, DataTypes) {
     Invite.associate = function(models) {
       Invite.belongsTo(models.Post, {
         foreignKey: {
-          allowNull: false
+          allowNull: true    // can not be false, im probably doing everything wrong....
         }
       });
     };
