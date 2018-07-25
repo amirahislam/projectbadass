@@ -17,7 +17,7 @@ module.exports = function(app) {
       limit: 6
     }).then(function(data) {
       if (req.isAuthenticated()) {
-        res.render("index", {
+        res.render("chefprofile", {
           msg: "Welcome",
           username: req.user.email,
           isLoggedIn: true,
@@ -26,7 +26,7 @@ module.exports = function(app) {
           helpers: { concat: concat }
         });
       } else {
-        res.render("index", {
+        res.render("chefprofile", {
           isLoggedIn: false,
           notLoggedIn: true,
           posts: data,
