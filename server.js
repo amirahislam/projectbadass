@@ -1,5 +1,7 @@
 require("dotenv").config();
 var express = require("express");
+var passport = require("passport");
+var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
 
@@ -13,6 +15,13 @@ app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
 
+// For Passport
+app.use(
+  session({ secret: "keyboard cat", resave: true, saveUninitialized: true })
+); // session secret
+app.use(passport.initialize());
+app.use(passport.session()); // persistent login sessions
+
 // Handlebars
 app.engine(
   "handlebars",
@@ -25,6 +34,9 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
+require("./routes/authRoutes")(app, passport);
+//load passport strategies
+require("./config/passport/passport.js")(passport, db.user);
 
 var syncOptions = { force: false };
 
@@ -36,7 +48,10 @@ if (process.env.NODE_ENV === "test") {
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync(syncOptions).then(function() {
-  app.listen(PORT, function() {
+  app.listen(PORT, function(err) {
+    if (err) {
+      throw err;
+    }
     console.log(
       "==> 🌎  Listening on port %s. Visit http://localhost:%s/ in your browser.",
       PORT,
@@ -44,5 +59,7 @@ db.sequelize.sync(syncOptions).then(function() {
     );
   });
 });
+
+console.log("I hope this works");
 
 module.exports = app;
