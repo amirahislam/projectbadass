@@ -16,6 +16,7 @@
     <link rel="stylesheet" type="text/css" media="screen" href="/styles/styles.css" />
 </head>
 <body>
+<<<<<<< HEAD
     <form class="form-horizontal">
 <fieldset>
 
@@ -165,6 +166,73 @@ $(".profile").click(function(e){
     )
   })
 </script>
+=======
+   <div class="container">
+
+    <form>
+    <div class="form-group">
+    <label for="formGroupExampleInput">Event Name</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+    </div>
+    <div class="form-group">
+    <label for="exampleFormControlTextarea1">Event Description</label>
+    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+    </div>
+    <div class="form-group">
+    <label for="texarea">Event Photo</label>
+    <input type="putImage" class="form-control" id="putImage" placeholder="Another input">
+    </div>
+    <div class="form-group">
+            <div class="input-group date" id="datetimepicker2" data-target-input="nearest">
+                <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker2"/>
+                <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetimepicker">
+                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                </div>
+            </div>
+        </div>
+        <script type="text/javascript">
+            $(function () {
+                $('#datetimepicker2').datetimepicker({
+                    locale: 'ru'
+                });
+            });
+        </script>
+    <div class="form-group">
+        <label for="exampleFormControlFile1">Upload Menu</label>
+        <input type="file" class="form-control-file" id="exampleFormControlFile1">
+    </div>
+    <div class="form-group">
+    <label for="formGroupExampleInput">Number of Guests</label>
+    <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+    </div>
+    <div class="form-group">
+            <label for="selectbasic">Set Price</label>
+              <select id="selectbasic" name="selectbasic" class="form-control">
+                <option value="1">$25</option>
+                <option value="2">$30</option>
+                <option value="3">$40</option>
+                <option value="4">$45</option>
+                <option value="5">$50</option>
+                <option value="6">$60</option>
+                <option value="7">$75</option>
+                <option value="8">$85</option>
+                <option value="9">$100</option>
+                <option value="10">$150</option>
+                <option value="11">$175</option>
+                <option value="12">$200</option>
+              </select>
+            </div>
+        
+
+          <div class="form-group">
+                <label for="exampleFormControlTextarea1">Rules:</label>
+                <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+              </div>
+        
+    <button type="submit" class="btn btn-primary" id="submitstyle">Submit</button>  
+        </form>
+    </div>
+>>>>>>> master
     
 </body>
 </html>

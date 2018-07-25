@@ -1,13 +1,38 @@
 var db = require("../models");
+// var op = db.sequelize.Operaters;
+
+var concat = function(s1, s2) {
+  return s1 + s2;
+};
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-    db.Example.findAll({}).then(function(dbExamples) {
-      res.render("index", {
-        msg: "Welcome!",
-        examples: dbExamples
-      });
+    db.Post.findAll({
+      where: {
+        postId: {
+          $between: [1, 6]
+        }
+      },
+      limit: 6
+    }).then(function(data) {
+      if (req.isAuthenticated()) {
+        res.render("index", {
+          msg: "Welcome",
+          username: req.user.email,
+          isLoggedIn: true,
+          notLoggedIn: false,
+          posts: data,
+          helpers: { concat: concat }
+        });
+      } else {
+        res.render("index", {
+          isLoggedIn: false,
+          notLoggedIn: true,
+          posts: data,
+          helpers: { concat: concat }
+        });
+      }
     });
   });
 
@@ -28,7 +53,7 @@ module.exports = function(app) {
   });
 
   // Render 404 page for any unmatched routes
-  app.get("*", function(req, res) {
-    res.render("404");
-  });
+  // app.get("*", function(req, res) {
+  //   res.render("404");
+  // });
 };
