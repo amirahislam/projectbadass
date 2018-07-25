@@ -22,7 +22,11 @@ module.exports = function(sequelize, DataTypes) {
     },
 
     date: {
+<<<<<<< HEAD
       type: DataTypes.STRING,
+=======
+      type: DataTypes.STRING
+>>>>>>> e9ceb48219c707a830b356679833822e54c1a5e5
     },
 
     menulink: {
@@ -39,13 +43,18 @@ module.exports = function(sequelize, DataTypes) {
     priceRange: {
       type: DataTypes.STRING,
       validate: {
+<<<<<<< HEAD
         isNumeric: true,
+=======
+        isNumeric: true
+>>>>>>> e9ceb48219c707a830b356679833822e54c1a5e5
       }
     },
 
     rules: {
       type: DataTypes.STRING
     }
+<<<<<<< HEAD
 
   });
   // Associate a post with a Chef
@@ -58,3 +67,16 @@ module.exports = function(sequelize, DataTypes) {
   };
     return Post;
 };
+=======
+  });
+  // Associate a post with a Chef
+  //   Post.associate = function(models) {
+  //     Post.belongsTo(models.Chef, {
+  //       foreignKey: {
+  //         allowNull: false
+  //       }
+  //     });
+  //   };
+  return Post;
+};
+>>>>>>> e9ceb48219c707a830b356679833822e54c1a5e5

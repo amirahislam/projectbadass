@@ -6,21 +6,24 @@ module.exports = function(app) {
   // Each of the below routes just handles the HTML page that the user gets sent to.
 
   app.get("/", function(req, res) {
-
-    db.Example.findAll({}).then(function() {
-      if (req.isAuthenticated()) {
-        res.render("index", {
-          msg: "Welcome",
-          username: req.user.email,
-          isLoggedIn: true,
-          notLoggedIn: false
-        });
-      } else {
-        res.render("index", {
-          isLoggedIn: false,
-          notLoggedIn: true
-        });
-      }
+    db.Post.findAll({ limit: 6 }).then(function(data) {
+      db.Example.findAll({}).then(function() {
+        if (req.isAuthenticated()) {
+          res.render("index", {
+            msg: "Welcome",
+            username: req.user.email,
+            isLoggedIn: true,
+            notLoggedIn: false,
+            posts: postsData
+          });
+        } else {
+          res.render("index", {
+            isLoggedIn: false,
+            notLoggedIn: true,
+            posts: data
+          });
+        }
+      });
     });
   });
 
