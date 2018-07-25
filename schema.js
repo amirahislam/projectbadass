@@ -8,10 +8,15 @@ module.exports = function(db){
 
         db.Chef.create(
             {
-                "name": "Travis",
+                "firstname": "Travis",
+                "lastname": "Margetts",
+                "username": "tmargetts",
+                "about": "I am a chef",
                 "email": "travismargetts@gmail.com",
-                "photoLink": "https://pbs.twimg.com/profile_images/839900475205955585/FMzXSOkV_400x400.jpg",
-                "about": "I am a chef."
+                "password": "password",
+                "lastLogin": "20180101",
+                "status": "active"
+                
             }
         ).then(function(response) {
            console.log(response);
