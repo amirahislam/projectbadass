@@ -14,8 +14,8 @@ module.exports = function(app, passport) {
     res.render("signin");
   });
 
-  app.get("/dashboard", isLoggedIn, function(req, res) {
-    res.render("profile");
+  app.get("/chefprofile", isLoggedIn, function(req, res) {
+    res.render("chefprofile");
   });
 
   app.get("/logout", function(req, res) {
@@ -30,7 +30,7 @@ module.exports = function(app, passport) {
   app.post(
     "/signup",
     passport.authenticate("local-signup", {
-      successRedirect: "/dashboard",
+      successRedirect: "/chefprofile",
       failureRedirect: "/"
     })
   );
@@ -38,7 +38,7 @@ module.exports = function(app, passport) {
   app.post(
     "/signin",
     passport.authenticate("local-signin", {
-      successRedirect: "/dashboard",
+      successRedirect: "/chefprofile",
       failureRedirect: "/signin"
     })
   );
