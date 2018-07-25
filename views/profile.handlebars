@@ -112,7 +112,7 @@ $(".profile").click(function(event){
 
     console.log(user);
 
-    $.post("/profile", user, function(req, res){
+    $.post("/api/profile", user, function(req, res){
       console.log("more things")
     }).then(
       res.render("index");

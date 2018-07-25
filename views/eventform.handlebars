@@ -26,7 +26,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="event_name">Event Name</label>  
   <div class="col-md-4">
-  <input id="event_name" name="event_name" type="text" placeholder="Enter Event Name" class="form-control input-md">
+  <input class="name" id="event_name" name="event_name" type="text" placeholder="Enter Event Name" class="form-control input-md">
     
   </div>
 </div>
@@ -35,7 +35,7 @@
 <div class="form-group">
   <label class="col-md-4 control-label" for="textarea">Event Description</label>
   <div class="col-md-4">                     
-    <textarea class="form-control" id="textarea" name="textarea"></textarea>
+    <textarea class="form-control desc" id="textarea" name="textarea"></textarea>
   </div>
 </div>
 
@@ -43,7 +43,7 @@
 <div class="form-group">
      <label class="col-md-4 control-label" for="textarea">Event Photo</label>
     <div class="col-md-4">
-    <input type="putImage" class="form-control" id="inputImage" aria-describedby="nameHelp" placeholder="Paste Image Link">
+    <input type="putImage" class="form-control img" id="inputImage" aria-describedby="nameHelp" placeholder="Paste Image Link">
   </div>
 
 <!-- Text input-->
@@ -104,7 +104,7 @@
 
 <!-- Price Range -->
 <div class="form-group">
-  <label class="col-md-4 control-label" for="selectbasic">Event Time</label>
+  <label class="col-md-4 control-label" for="selectbasic">Event Price</label>
   <div class="col-md-4">
     <select id="selectbasic" name="selectbasic" class="form-control">
       <option value="1">$25</option>
@@ -136,6 +136,35 @@
 
 </fieldset>
 </form>
+<script>
+    $(document).ready(function(){
+  $('.flip').click(function(){
+    $('.cont-flip').toggleClass('flipped');
+    return false;  
+  });
+});
+
+$(".profile").click(function(e){
+    e.preventDefault();
+    console.log("a thing");
+    var event = {};
+    event.name = $(".name").val().trim();
+    event.desc = $(".desc").val().trim();
+    event.img = $(".img").val().trim();
+    event.twitter = $(".twitter").val().trim();
+    event.instagram = $(".instagram").val().trim();
+    event.bio = $(".bio").val().trim();
+
+
+    console.log(event);
+
+    $.post("/api/profile", event, function(req, res){
+      console.log("more things")
+    }).then(
+      res.render("index");
+    )
+  })
+</script>
     
 </body>
 </html>
