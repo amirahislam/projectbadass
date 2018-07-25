@@ -33,40 +33,27 @@ app.use(passport.session()); // persistent login sessions
 // );
 
 // Routes
-<<<<<<< HEAD
 require("./routes/chef-api-routes.js")(app);  //double check
 require("./routes/post-api-routes.js")(app); //double check
 require("./routes/invite-api-routes.js")(app);
 require("./routes/htmlroutes.js")(app);
-=======
-require("./routes/apiRoutes")(app);
-require("./routes/htmlRoutes")(app);
 require("./routes/authRoutes")(app, passport);
 //load passport strategies
 require("./config/passport/passport.js")(passport, db.user);
->>>>>>> 4cac3177412b20327eed02385f1c8a05b4839cec
 
 app.use(express.static(__dirname + '/public'));
 
 // Starting the server, syncing our models ------------------------------------/
-<<<<<<< HEAD
-db.sequelize.sync({ force: true }).then(function() {
-  app.listen(PORT, function() {
-=======
 db.sequelize.sync(syncOptions).then(function() {
   app.listen(PORT, function(err) {
     if (err) {
       throw err;
     }
->>>>>>> 4cac3177412b20327eed02385f1c8a05b4839cec
     console.log(
       "Supperclub app server is listening on PORT " + PORT);
   });
 });
-<<<<<<< HEAD
-=======
 
 console.log("I hope this works");
 
 module.exports = app;
->>>>>>> 4cac3177412b20327eed02385f1c8a05b4839cec
