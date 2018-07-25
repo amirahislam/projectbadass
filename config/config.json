@@ -2,7 +2,11 @@
   "development": {
     "username": "root",
     "password": "root",
+<<<<<<< HEAD
     "database": "supperclubdb",
+=======
+    "database": "exampledb",
+>>>>>>> 4cac3177412b20327eed02385f1c8a05b4839cec
     "host": "localhost",
     "port": 3306,
     "dialect": "mysql"
@@ -10,7 +14,11 @@
   "test": {
     "username": "root",
     "password": "root",
+<<<<<<< HEAD
     "database": "supperclubdb",
+=======
+    "database": "testdb",
+>>>>>>> 4cac3177412b20327eed02385f1c8a05b4839cec
     "host": "localhost",
     "dialect": "mysql",
     "logging": false

@@ -30,7 +30,12 @@ module.exports = function(db){
             {
                 "title": "Chefs Table",
                 "body": "This table has really good food.",
-                "photolink": "https://media.cntraveler.com/photos/57c445b265e6586e551da52a/4:3/w_480,c_limit/Chef-Passard-netflix-cr-courtesy.jpg"
+                "photolink": "https://media.cntraveler.com/photos/57c445b265e6586e551da52a/4:3/w_480,c_limit/Chef-Passard-netflix-cr-courtesy.jpg",
+                "date": "20180101",
+                "menulink": "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
+                "numberofGuests": "4",
+                "priceRange": "25",
+                "rules": "No food fighting."
             }
         ).then(function(response) {
            //console.log(response);

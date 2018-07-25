@@ -19,7 +19,34 @@ module.exports = function(sequelize, DataTypes) {
     // photolink will point to the thumbnail
     photolink: {
       type: DataTypes.STRING
+    },
+
+    date: {
+      type: DataTypes.STRING,
+    },
+
+    menulink: {
+      type: DataTypes.STRING
+    },
+
+    numberofGuests: {
+      type: DataTypes.STRING,
+      validate: {
+        isNumeric: true
+      }
+    },
+
+    priceRange: {
+      type: DataTypes.STRING,
+      validate: {
+        isNumeric: true,
+      }
+    },
+
+    rules: {
+      type: DataTypes.STRING
     }
+
   });
   // Associate a post with a Chef
   Post.associate = function(models) {
