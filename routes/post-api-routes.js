@@ -4,10 +4,6 @@ var db = require("../models");
 module.exports = function(app) {
   // Retrieve the list of all posts
   app.get("/api/posts", function(req, res) {
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ceb48219c707a830b356679833822e54c1a5e5
     // If the request is specifying a particular chef
     var query = {};
     if (req.query.chef_id) {
@@ -25,10 +21,6 @@ module.exports = function(app) {
 
   // Retrieve a specific post by postid
   app.get("/api/posts/:id", function(req, res) {
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ceb48219c707a830b356679833822e54c1a5e5
     // Add a join here to include the Chef who wrote the Post
     db.Post.findOne({
       where: {
@@ -36,20 +28,12 @@ module.exports = function(app) {
       },
       include: [db.Chef]
     }).then(function(dbPost) {
-<<<<<<< HEAD
-        res.json(dbPost);
-=======
       res.json(dbPost);
->>>>>>> e9ceb48219c707a830b356679833822e54c1a5e5
     });
   });
 
   // Create a new post
   app.post("/api/posts", function(req, res) {
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ceb48219c707a830b356679833822e54c1a5e5
     db.Post.create(req.body).then(function(dbPost) {
       res.json(dbPost);
     });
@@ -57,10 +41,6 @@ module.exports = function(app) {
 
   // Delete a specific post by postid
   app.delete("/api/posts/:id", function(req, res) {
-<<<<<<< HEAD
-
-=======
->>>>>>> e9ceb48219c707a830b356679833822e54c1a5e5
     db.Post.destroy({
       where: {
         id: req.params.id
@@ -72,20 +52,6 @@ module.exports = function(app) {
 
   // Update a specific post by postid
   app.put("/api/posts/:id", function(req, res) {
-<<<<<<< HEAD
-
-    db.Post.update(
-      req.body,
-      {
-        where: {
-          id: req.params.id
-        }
-      }).then(function(dbPost) {
-        res.json(dbPost);
-      });
-  });
-};
-=======
     db.Post.update(req.body, {
       where: {
         id: req.params.id
@@ -95,4 +61,3 @@ module.exports = function(app) {
     });
   });
 };
->>>>>>> e9ceb48219c707a830b356679833822e54c1a5e5

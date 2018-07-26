@@ -96,7 +96,6 @@
     return false;  
   });
 });
-
 $(".profile").click(function(event){
     event.preventDefault();
     console.log("a thing");
@@ -107,10 +106,7 @@ $(".profile").click(function(event){
     user.twitter = $(".twitter").val().trim();
     user.instagram = $(".instagram").val().trim();
     user.bio = $(".bio").val().trim();
-
-
     console.log(user);
-
     $.post("/profile", user, function(req, res){
       console.log("more things")
     }).then(

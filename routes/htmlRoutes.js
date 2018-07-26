@@ -1,10 +1,7 @@
-var path = require("path");
 var db = require("../models");
 
 module.exports = function(app) {
-
-  // Each of the below routes just handles the HTML page that the user gets sent to.
-
+  // Load index page
   app.get("/", function(req, res) {
     db.Post.findAll({ limit: 6 }).then(function(data) {
       db.Example.findAll({}).then(function() {
@@ -42,3 +39,4 @@ module.exports = function(app) {
   // app.get("*", function(req, res) {
   //   res.render("404");
   // });
+};
