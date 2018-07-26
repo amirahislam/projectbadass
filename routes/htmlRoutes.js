@@ -1,21 +1,36 @@
 var db = require("../models");
+// var op = db.sequelize.Operaters;
+
+var concat = function(s1, s2) {
+  return s1 + s2;
+};
 
 module.exports = function(app) {
   // Load index page
   app.get("/", function(req, res) {
-
-    db.Example.findAll({}).then(function() {
+    db.Post.findAll({
+      where: {
+        postId: {
+          $between: [1, 6]
+        }
+      },
+      limit: 6
+    }).then(function(data) {
       if (req.isAuthenticated()) {
-        res.render("index", {
+        res.render("chefprofile", {
           msg: "Welcome",
           username: req.user.email,
           isLoggedIn: true,
-          notLoggedIn: false
+          notLoggedIn: false,
+          posts: data,
+          helpers: { concat: concat }
         });
       } else {
-        res.render("index", {
+        res.render("chefprofile", {
           isLoggedIn: false,
-          notLoggedIn: true
+          notLoggedIn: true,
+          posts: data,
+          helpers: { concat: concat }
         });
       }
     });
