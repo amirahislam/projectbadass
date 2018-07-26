@@ -51,6 +51,7 @@ if (process.env.NODE_ENV === "test") {
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
   require("./erin_test.js")(db);
+  require("./travis_test.js")(db);
   app.listen(PORT, function(err) {
     if (err) {
       throw err;
