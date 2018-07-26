@@ -3,19 +3,26 @@ module.exports = function(app, passport) {
     if (req.isAuthenticated()) {
       return next();
     }
-    res.redirect("/signin");
+    res.redirect("/");
   }
 
   app.get("/signup", function(req, res) {
     res.render("signup");
   });
 
-  app.get("/signin", function(req, res) {
-    res.render("signin");
+  app.get("/login", function(req, res) {
+    res.render("login");
   });
 
   app.get("/chefprofile", isLoggedIn, function(req, res) {
-    res.render("chefprofile");
+    if (req.isAuthenticated()) {
+      res.render("chefprofile", {
+        msg: "Welcome",
+        username: req.user.email,
+        isLoggedIn: true,
+        notLoggedIn: false
+      });
+    }
   });
 
   app.get("/logout", function(req, res) {
@@ -36,10 +43,10 @@ module.exports = function(app, passport) {
   );
 
   app.post(
-    "/signin",
+    "/login",
     passport.authenticate("local-signin", {
       successRedirect: "/chefprofile",
-      failureRedirect: "/signin"
+      failureRedirect: "/login"
     })
   );
 };

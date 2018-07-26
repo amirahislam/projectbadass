@@ -1,46 +1,99 @@
 {{#each posts}}
-    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-        <div class="portfolio-wrap">
+    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp post">
+        <div class="posts-wrap" post-id={{postId}}>
             <figure>
                 <img src={{photolink}} class="img-fluid" alt="Oop">
                 <a href={{photolink}} data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details" data-toggle="modal" data-target="#exampleModalCenter"><i class="ion ion-android-open"></i></a>
+                <a href="#" class="link-details" title="More Details" data-toggle="modal" data-target={{concat "#modal" postId}}><i class="ion ion-android-open"></i></a>
             </figure>
 
-            <div class="portfolio-info">
+            <div class="portfolio-info" >
                 <h4>{{title}}</h4>
                 <p>Request to Join</p>
             </div>
         </div>
         
         <!-- Modal -->
-        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal fade" id={{concat "modal" postId}} tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
             <div class="modal-dialog modal-dialog-centered" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalCenterTitle">{{title}}</h5>
+                        <h5 class="modal-title" id="exampleModalCenterTitle" >{{title}}</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
                     </div>
                     <div class="modal-body">
-                        <label>Event Description:</label>
-                        <P>{{body}}</P>
-                        <label>Number of Guests:</label>
-                        <p>{{numberofGuests}}</p>
-                        <label>Price:</label>
-                        <p>{{priceRange}}</p>
-                        <label>Note:</label>
-                        <p>{{rules}}</p>
+                        {{!-- show event info --}}
+                        <div>
+                            <P>Event Description: <br> {{body}}</P>
+                            <p>Number of Guests: {{numberofGuests}}</p>  
+                            <p>Price: {{priceRange}}</p>
+                            <p>Note: <br>{{rules}}</p>
+                        </div>
+                        {{!-- show event images --}}
+                        <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
+                            <div class="carousel-inner">
+                                <div class="carousel-item active">
+                                <img class="d-block img-responsive" src={{photolink}} alt="First slide">
+                                </div>
+                                <div class="carousel-item">
+                                <img class="d-block img-responsive" src={{photolink}} alt="Second slide">
+                                </div>
+                                <div class="carousel-item">
+                                <img class="d-block img-responsive" src={{photolink}} alt="Third slide">
+                                </div>
+                            </div>
+                            <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+                                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Previous</span>
+                            </a>
+                            <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+                                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                <span class="sr-only">Next</span>
+                            </a>
+                        </div>
+
+                        <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href={{concat "#collapse" postId}}>
+                                Reserve your seat
+                            </a>
+                        </p>
+                        <div class="collapse" id={{concat "collapse" postId}}>
+                            <div class="card card-body">
+                                <form>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="First name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Last name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Email address</label>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Phone Number</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
+                    {{!-- close button --}}
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-primary">Save changes</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>       
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-
-
 {{/each}}
+
+<button id="loadMore">More</button>
