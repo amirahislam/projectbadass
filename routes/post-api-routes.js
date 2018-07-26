@@ -16,7 +16,7 @@ module.exports = function(app) {
           $gt: parseInt(id)
         }
       },
-      order: [["postId", "DESC"]],
+      order: [["postId", "ASC"]],
       limit: 6
     }).then(function(data) {
       console.log(__dirname);

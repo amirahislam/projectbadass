@@ -67,30 +67,3 @@
 {{/each}}
 
 <button id="loadMore">More</button>
-
-<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
-<script type='text/javascript'>
-    $("#loadMore").on("click",function(event){
-        console.log("hello")
-        var allPosts = $(".posts-wrap");
-        var lastDisplayPost = allPosts[allPosts.length - 1];
-        console.log(lastDisplayPost);
-        var lastDisplayPostId = $(lastDisplayPost).attr("post-id");
-        console.log(lastDisplayPostId);
-        
-        $.ajax("/api/posts/more/"+lastDisplayPostId,{
-            type: "GET",
-           
-        }).then(function(data){
-            // $($('.post')[0]).html()
-            console.log(data)
-            $('.posts-container').append(data);
-            $('.posts-container').append($("#loadMore"))
-            $("#loadMore").remove();
-            
-        })
- 
-
-    })
-
-</script>

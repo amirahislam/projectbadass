@@ -113,7 +113,7 @@ module.exports = [
   {
     title: "Desi Treats",
     body: "This table has really good food.",
-    photolink: "/images/panipuri.jpg",
+    photolink: "/images/bhanmei.jpg",
     date: "20180101",
     menulink:
       "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
@@ -135,7 +135,7 @@ module.exports = [
   {
     title: "Desi Treats",
     body: "This table has really good food.",
-    photolink: "/images/panipuri.jpg",
+    photolink: "/images/nepali.jpg",
     date: "20180101",
     menulink:
       "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
@@ -157,7 +157,29 @@ module.exports = [
   {
     title: "Desi Treats",
     body: "This table has really good food.",
-    photolink: "/images/panipuri.jpg",
+    photolink: "/images/nepali.jpg",
+    date: "20180101",
+    menulink:
+      "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
+    numberofGuests: "4",
+    priceRange: "25",
+    rules: "No food fighting."
+  },
+  {
+    title: "Desi Treats",
+    body: "This table has really good food.",
+    photolink: "/images/bhanmei.jpg",
+    date: "20180101",
+    menulink:
+      "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
+    numberofGuests: "4",
+    priceRange: "25",
+    rules: "No food fighting."
+  },
+  {
+    title: "Desi Treats",
+    body: "This table has really good food.",
+    photolink: "/images/nepali.jpg",
     date: "20180101",
     menulink:
       "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
@@ -179,7 +201,18 @@ module.exports = [
   {
     title: "Desi Treats",
     body: "This table has really good food.",
-    photolink: "/images/panipuri.jpg",
+    photolink: "/images/bhanmei.jpg",
+    date: "20180101",
+    menulink:
+      "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
+    numberofGuests: "4",
+    priceRange: "25",
+    rules: "No food fighting."
+  },
+  {
+    title: "Desi Treats",
+    body: "This table has really good food.",
+    photolink: "/images/nepali.jpg",
     date: "20180101",
     menulink:
       "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
@@ -201,45 +234,12 @@ module.exports = [
   {
     title: "Desi Treats",
     body: "This table has really good food.",
-    photolink: "/images/panipuri.jpg",
+    photolink: "/images/nepali.jpg",
     date: "20180101",
     menulink:
       "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
     numberofGuests: "4",
     priceRange: "25",
     rules: "No food fighting."
-  },
-  {
-    title: "Desi Treats",
-    body: "This table has really good food.",
-    photolink: "/images/panipuri.jpg",
-    date: "20180101",
-    menulink:
-      "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
-    numberofGuests: "4",
-    priceRange: "25",
-    rules: "No food fighting."
-  },
-  {
-    title: "Desi Treats",
-    body: "This table has really good food.",
-    photolink: "/images/panipuri.jpg",
-    date: "20180101",
-    menulink:
-      "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
-    numberofGuests: "4",
-    priceRange: "25",
-    rules: "No food fighting."
-  },
-  {
-    title: "Desi Treats",
-    body: "This table has really good food.",
-    photolink: "/images/panipuri.jpg",
-    date: "20180101",
-    menulink:
-      "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
-    numberofGuests: "4",
-    priceRange: "25",
-    rules: "No food fighting."
-  },
+  }
 ];
