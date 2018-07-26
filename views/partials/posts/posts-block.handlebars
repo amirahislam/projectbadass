@@ -1,13 +1,13 @@
 {{#each posts}}
-    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-        <div class="portfolio-wrap">
+    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp post">
+        <div class="posts-wrap" post-id={{postId}}>
             <figure>
                 <img src={{photolink}} class="img-fluid" alt="Oop">
                 <a href={{photolink}} data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
                 <a href="#" class="link-details" title="More Details" data-toggle="modal" data-target={{concat "#modal" postId}}><i class="ion ion-android-open"></i></a>}}
             </figure>
 
-            <div class="portfolio-info" id={{postId}}>
+            <div class="portfolio-info" >
                 <h4>{{title}}</h4>
                 <p>Request to Join</p>
             </div>
@@ -67,3 +67,30 @@
 {{/each}}
 
 <button id="loadMore">More</button>
+
+<script src="//cdnjs.cloudflare.com/ajax/libs/handlebars.js/1.3.0/handlebars.min.js"></script>
+<script type='text/javascript'>
+    $("#loadMore").on("click",function(event){
+        console.log("hello")
+        var allPosts = $(".posts-wrap");
+        var lastDisplayPost = allPosts[allPosts.length - 1];
+        console.log(lastDisplayPost);
+        var lastDisplayPostId = $(lastDisplayPost).attr("post-id");
+        console.log(lastDisplayPostId);
+        
+        $.ajax("/api/posts/more/"+lastDisplayPostId,{
+            type: "GET",
+           
+        }).then(function(data){
+            // $($('.post')[0]).html()
+            console.log(data)
+            $('.posts-container').append(data);
+            $('.posts-container').append($("#loadMore"))
+            $("#loadMore").remove();
+            
+        })
+ 
+
+    })
+
+</script>

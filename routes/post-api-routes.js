@@ -1,7 +1,32 @@
 // Requiring our models
 var db = require("../models");
+// var fs = require("fs");
+var concat = function(s1, s2) {
+  return s1 + s2;
+};
 
 module.exports = function(app) {
+  // load 6 posts for every request
+  app.get("/api/posts/more/:id", function(req, res) {
+    console.log(req.params.id);
+    var id = req.params.id;
+    db.Post.findAll({
+      where: {
+        postId: {
+          $gt: parseInt(id)
+        }
+      },
+      order: [["postId", "DESC"]],
+      limit: 6
+    }).then(function(data) {
+      console.log(__dirname);
+      res.render("partials/posts/posts-block", {
+        posts: data,
+        helpers: { concat: concat }
+      });
+    });
+  });
+
   // Retrieve the list of all posts
   app.get("/api/posts", function(req, res) {
     // If the request is specifying a particular chef
