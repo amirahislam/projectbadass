@@ -35,6 +35,7 @@ app.set("view engine", "handlebars");
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require("./routes/authRoutes")(app, passport);
+require("./routes/post-api-routes")(app);
 //load passport strategies
 require("./config/passport/passport.js")(passport, db.user);
 
@@ -45,6 +46,11 @@ var syncOptions = { force: false };
 if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
+
+//Render 404 page for any unmatched routes
+app.get("*", function(req, res) {
+  res.render("404");
+});
 
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
@@ -61,6 +67,6 @@ db.sequelize.sync().then(function() {
   });
 });
 
-console.log("I hope this works");
+// console.log("I hope this works");
 
-module.exports = app;
+// module.exports = app;
