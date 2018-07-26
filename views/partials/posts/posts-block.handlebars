@@ -1,13 +1,13 @@
 {{#each posts}}
-    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp">
-        <div class="portfolio-wrap">
+    <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp post">
+        <div class="posts-wrap" post-id={{postId}}>
             <figure>
                 <img src={{photolink}} class="img-fluid" alt="Oop">
                 <a href={{photolink}} data-lightbox="portfolio" data-title="App 1" class="link-preview" title="Preview"><i class="ion ion-eye"></i></a>
-                <a href="#" class="link-details" title="More Details" data-toggle="modal" data-target={{concat "#modal" postId}}><i class="ion ion-android-open"></i></a>}}
+                <a href="#" class="link-details" title="More Details" data-toggle="modal" data-target={{concat "#modal" postId}}><i class="ion ion-android-open"></i></a>
             </figure>
 
-            <div class="portfolio-info" id={{postId}}>
+            <div class="portfolio-info" >
                 <h4>{{title}}</h4>
                 <p>Request to Join</p>
             </div>
@@ -53,17 +53,47 @@
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
+
+                        <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href={{concat "#collapse" postId}}>
+                                Reserve your seat
+                            </a>
+                        </p>
+                        <div class="collapse" id={{concat "collapse" postId}}>
+                            <div class="card card-body">
+                                <form>
+                                    <div class="container">
+                                        <div class="row">
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="First name">
+                                            </div>
+                                            <div class="col">
+                                                <input type="text" class="form-control" placeholder="Last name">
+                                            </div>
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="exampleFormControlInput1">Email address</label>
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+                                        </div>
+                                        <div class="form-group">
+                                            <label for="formGroupExampleInput">Phone Number</label>
+                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
+                                        </div>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
                     {{!-- close button --}}
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>       
                     </div>
+
                 </div>
             </div>
         </div>
     </div>
-
-
 {{/each}}
 
 <button id="loadMore">More</button>

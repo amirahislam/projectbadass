@@ -1,5 +1,4 @@
 var db = require("../models");
-// var op = db.sequelize.Operaters;
 
 var concat = function(s1, s2) {
   return s1 + s2;
@@ -17,7 +16,7 @@ module.exports = function(app) {
       limit: 6
     }).then(function(data) {
       if (req.isAuthenticated()) {
-        res.render("chefprofile", {
+        res.render("index", {
           msg: "Welcome",
           username: req.user.email,
           isLoggedIn: true,
@@ -26,7 +25,7 @@ module.exports = function(app) {
           helpers: { concat: concat }
         });
       } else {
-        res.render("chefprofile", {
+        res.render("index", {
           isLoggedIn: false,
           notLoggedIn: true,
           posts: data,
@@ -46,9 +45,4 @@ module.exports = function(app) {
       });
     });
   });
-
-  // Render 404 page for any unmatched routes
-  // app.get("*", function(req, res) {
-  //   res.render("404");
-  // });
 };
