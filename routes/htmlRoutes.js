@@ -1,5 +1,4 @@
 var db = require("../models");
-// var op = db.sequelize.Operaters;
 
 var concat = function(s1, s2) {
   return s1 + s2;
@@ -46,14 +45,4 @@ module.exports = function(app) {
       });
     });
   });
-
-  // Load user profile form
-  app.get("/profile", function(req, res) {
-    res.render("profile");
-  });
-
-  // Render 404 page for any unmatched routes
-  // app.get("*", function(req, res) {
-  //   res.render("404");
-  // });
 };
