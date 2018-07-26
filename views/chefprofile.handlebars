@@ -5,11 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Chef Profile</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" media="screen" href="/styles/styles.css" />
-    <script src="main.js"></script>
+    
+    
+    
+    {{!-- <script src="main.js"></script> --}}
 
     <!-- Main Stylesheet File -->
-  <link href="/styles/bootstrap-style.css" rel="stylesheet">
+  {{!-- <link href="/styles/bootstrap-style.css" rel="stylesheet"> --}}
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -20,15 +22,41 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/js/tempusdominus-bootstrap-4.min.js"></script>
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/tempusdominus-bootstrap-4/5.0.1/css/tempusdominus-bootstrap-4.min.css" />
 
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.2/css/bootstrap.min.css" integrity="sha384-Smlep5jCw/wG7hdkwQ/Z5nLIefveQRIY9nfy6xoR1uRYBtpZgI6339F5dgvm/e9B" crossorigin="anonymous">
+<!-- Add icon library -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+<link rel="stylesheet" type="text/css" media="screen" href="/styles/styles.css" />
 
 </head>
 <body>
-    <!-- Add icon library -->
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	<!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
 
+      <div id="logo" class="pull-left">
+        <h1><a href="#" class="scrollto">Secret Supper Club</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="/">Home</a></li>
+          {{> auth/auth-block}}
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
+	
+<br>
+<br>
 <div class="card">
   <img src="/images/alexg.jpg" alt="John" style="width:100%">
-  <h1>Alex G</h1>
+  <h1>Alex Guarnaschelli</h1>
   <p class="title">She a G!</p>
   <p>Bossass Chef</p>
   <a href="#"><i class="fa fa-dribbble"></i></a> 
@@ -38,7 +66,7 @@
   {{!-- <p><button>Create Event</button></p> --}}
 
   <!-- Button trigger modal -->
-<p><button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModalLong">
+<p><button type="button" class="btn btn-light" id="createeventbtn" data-toggle="modal" data-target="#exampleModalLong">
   Create Event
 </button></p>
 
@@ -68,21 +96,25 @@
     <label for="texarea">Event Photo</label>
     <input type="putImage" class="form-control" id="putImage" placeholder="Another input">
     </div>
-    <div class="form-group" align="left">
-            <div class="input-group date" id="datetime" data-target-input="nearest">
-                <input type="text" class="form-control datetimepicker-input" data-target="#datetime"/>
-                <div class="input-group-append" data-target="#datetimepicker2" data-toggle="datetime">
-                    <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+    <div class="container">
+    <div class="row">
+        
+            <div class="form-group" align="left">
+                <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                    <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
+                        <div class="input-group-text"><i class="fa fa-calendar"></i></div>
+                    </div>
                 </div>
             </div>
-        </div>
+        
         <script type="text/javascript">
             $(function () {
-                $('#datetimepicker2').datetimepicker({
-                    locale: 'ru'
-                });
+                $('#datetimepicker1').datetimepicker();
             });
         </script>
+    </div>
+</div>
     <div class="form-group" align="left">
         <label for="menuFile">Upload Menu</label>
         <input type="file" class="form-control-file" id="menuFile">
@@ -115,7 +147,7 @@
                 <textarea class="form-control" id="rulesTextarea" rows="3"></textarea>
               </div>
         
-    <button type="submit" class="btn btn-primary" id="submitstyle">Submit</button>  
+    <button type="submit" class="btn btn-light" id="submitstyle">Submit</button>  
         </form>
     </div>
       </div>
@@ -126,8 +158,9 @@
     </div>
   </div>
 </div>
-  <p><button>View Waiting List</button></p>
+  <p><button type="button" class="btn btn-light" id="viewlistbtn">View Waiting List</button></p>
 </div>
-    
+<br>
+<br>  
 </body>
 </html>

@@ -69,4 +69,8 @@ db.sequelize.sync().then(function() {
 
 // console.log("I hope this works");
 
+<<<<<<< HEAD
 // module.exports = app;
+=======
+// module.exports = app;
+>>>>>>> ec5b6be60c4cea6e89d55e5105a13c7609fe3092
