@@ -1,46 +1,11 @@
 {{#if notLoggedIn}}
-    {{!-- Signin form --}}
     <li>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-toggle="dropdown">
-        Login
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-        <form id="signin" name="signin" method="post" action="signin">
-            <label for="email">Email Address</label>
-            <input class="text" name="email" type="text" /><br>
-            <label for="password">Password</label>
-            <input name="password" type="password" /><br>
-            <input class="btn" type="submit" value="Sign In" />
-        </form>
-        </div>
-    </div>
-    </li>
-
-    {{!-- Signup form --}}
-    <li>
-    <div class="dropdown">
-        <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton2" data-toggle="dropdown">
-        Register
-        </button>
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton2">
-        <form id="signup" name="signup" method="post" action="/signup">
-            <label for="email">Email Address</label>
-            <input class="text" name="email" type="email" /><br>
-            <label for="firstname">Firstname</label>
-            <input name="firstname" type="text" /><br>
-            <label for="lastname">Lastname</label>
-            <input name="lastname" type="text" /><br>
-            <label for="password">Password</label>
-            <input name="password" type="password" /><br>
-            <input class="btn" type="submit" value="Sign Up" />
-        </form>
-        </div>
-    </div>
+        <a href="/login">Login</a>    
     </li>
 {{/if}}
               
 {{#if isLoggedIn}}
     <li>{{msg}}, {{username}}</li>
+    <li><a href="/chefprofile">My profile</li>
     <li><a href="/logout">Logout</li>
 {{/if}}

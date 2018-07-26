@@ -47,6 +47,11 @@ if (process.env.NODE_ENV === "test") {
   syncOptions.force = true;
 }
 
+//Render 404 page for any unmatched routes
+app.get("*", function(req, res) {
+  res.render("404");
+});
+
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
   require("./erin_test.js")(db);
@@ -62,6 +67,6 @@ db.sequelize.sync().then(function() {
   });
 });
 
-console.log("I hope this works");
+// console.log("I hope this works");
 
-module.exports = app;
+// module.exports = app;

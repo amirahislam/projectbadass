@@ -33,22 +33,40 @@
   <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Great+Vibes|Sacramento" rel="stylesheet">
 </head>
 <body>
-	
+	<!--==========================
+    Header
+  ============================-->
+  <header id="header">
+    <div class="container-fluid">
+
+      <div id="logo" class="pull-left">
+        <h1><a href="#" class="scrollto">Secret Supper Club</a></h1>
+        <!-- Uncomment below if you prefer to use an image logo -->
+        <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
+      </div>
+
+      <nav id="nav-menu-container">
+        <ul class="nav-menu">
+          <li class="menu-active"><a href="/">Home</a></li>
+        </ul>
+      </nav><!-- #nav-menu-container -->
+    </div>
+  </header><!-- #header -->
 	
 	<div class="container-login100" style="background-image: url('images/bg-01.jpg');">
 		<div class="wrap-login100 p-l-55 p-r-55 p-t-80 p-b-30">
-			<form class="login100-form validate-form">
+			<form class="login100-form validate-form" method="post" action="login">
 				<span class="login100-form-title p-b-37">
 					Sign In
 				</span>
 
 				<div class="wrap-input100 validate-input m-b-20" data-validate="Enter username or email">
-					<input class="input100" type="text" name="username" placeholder="username or email">
+					<input class="input100" type="text" name="email" placeholder="username or email">
 					<span class="focus-input100"></span>
 				</div>
 
 				<div class="wrap-input100 validate-input m-b-25" data-validate = "Enter password">
-					<input class="input100" type="password" name="pass" placeholder="password">
+					<input class="input100" type="password" name="password" placeholder="password">
 					<span class="focus-input100"></span>
 				</div>
 
@@ -61,7 +79,7 @@
                 <br>
                 <br>
 				<div class="text-center">
-					<a href="#" class="txt2 hov1">
+					<a href="/signup" class="txt2 hov1">
 						Sign Up
 					</a>
 				</div>
