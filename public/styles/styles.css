@@ -21,8 +21,15 @@ a, p {
   box-shadow: 5px 10px salmon;
 }
 
-#submitstyle {
+#submitstyle, #createeventbtn, #viewlistbtn {
   background-color: salmon;
+  color: white;
+  box-shadow: 0 10px 30px 0px salmon;
+  /* -moz-box-shadow: 0 10px 30px 0px salmon;
+  -webkit-box-shadow: 0 10px 30px 0px salmon;
+  -o-box-shadow: 0 10px 30px 0px salmon;
+  -ms-box-shadow: 0 10px 30px 0px salmon; */
+  
 }
 .list-group-item {
   line-height: 2.5;
