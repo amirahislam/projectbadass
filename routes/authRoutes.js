@@ -27,13 +27,14 @@ module.exports = function(app, passport, chef) {
         })
         .then(function(chefData) {
           if (chefData) {
+            console.log(req.user);
             res.render("chefprofile", {
               msg: "Welcome",
               image: chefData.linkToImage.slice(6),
               firstname: chefData.firstname,
               lastname: chefData.lastname,
               email: chefData.email,
-              username: req.user.email,
+              username: req.user.firstname + " " + req.user.lastname,
               isLoggedIn: true,
               notLoggedIn: false
             });
