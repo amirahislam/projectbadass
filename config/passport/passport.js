@@ -1,9 +1,34 @@
 //load bcrypt
 var bCrypt = require("bcrypt-nodejs");
 
-module.exports = function(passport, user) {
+module.exports = function(passport, user, chef) {
   var User = user;
+  var Chef = chef;
   var LocalStrategy = require("passport-local").Strategy;
+
+  function getChefData(email, req) {
+    var img = req.files.image[0];
+    var doc = req.files.doc[0];
+    return {
+      email: email,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname,
+      linkToImage: img.path,
+      twitterLink: req.body.twitter,
+      instagramLink: req.body.instagram,
+      about: req.body.about,
+      docImage: doc.path
+    };
+  }
+
+  function getUserData(email, userPassword, req) {
+    return {
+      email: email,
+      password: userPassword,
+      firstname: req.body.firstname,
+      lastname: req.body.lastname
+    };
+  }
 
   //serialize
   passport.serializeUser(function(user, done) {
@@ -21,6 +46,7 @@ module.exports = function(passport, user) {
     });
   });
 
+  // Method of signup
   passport.use(
     "local-signup",
     new LocalStrategy(
@@ -47,18 +73,27 @@ module.exports = function(passport, user) {
           } else {
             var userPassword = generateHash(password);
 
-            console.log("email=" + email);
-            var data = {
-              email: email,
-              password: userPassword,
-              firstname: req.body.firstname,
-              lastname: req.body.lastname
-            };
+            var userData = getUserData(email, userPassword, req);
 
-            User.create(data)
+            var chefData = getChefData(email, req);
+
+            // Save user login info into User table
+            User.create(userData)
               .then(function(newUser) {
                 if (newUser) {
-                  // return done(null, false);
+                  // Save chef detail info into Chef table
+                  Chef.create(chefData)
+                    .then(function(newChef) {
+                      if (!newChef) {
+                        return done(null, false);
+                      }
+                    })
+                    .catch(function(err) {
+                      console.log("Error:", err);
+                      return done(null, false, {
+                        message: "Something went wrong with your Signup"
+                      });
+                    });
                   return done(null, newUser);
                 } else {
                   return done(null, false);

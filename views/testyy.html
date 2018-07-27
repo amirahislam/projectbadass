@@ -1,0 +1,71 @@
+
+<form id="signup" name="signup" method="post" action="/signup">
+    <h5 class="modal-title" id="exampleModalLabel">Chef Profile Application</h5>
+   
+    {{!-- name --}}
+        <div class="form-group">
+        <label for="name">First Name (Required)</label>
+        <input type="text" class="form-control" id="firstname"  name="firstname">
+        </div>
+        <div class="form-group">
+        <label for="name">Last Name (Required)</label>
+        <input type="text" class="form-control" id="lastname" name="lastname">
+        </div>
+    {{!-- email --}}
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Email address</label>
+        <input type="email" name="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
+        </div>
+    {{!-- password --}}
+        <div class="form-group">
+        <label for="exampleFormControlInput1">Password</label>
+        <input type="password" name="password" class="form-control"  >
+        </div>
+
+        <div class="form-group">
+        <label for="pasteImage">Link to image (Required)</label>
+        <input type="file" class="form-control" id="inputImage" placeholder="Paste Image Link" name="image"> 
+        <input name="foo" type="file" />
+        </div>
+
+        <label for="inlineFormInputGroupUsername2">Twitter Handle</label>
+        <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+        </div>
+
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username" name="twitter">
+        </div>
+        
+        <label for="inlineFormInputGroupUsername2">Instagram Handle</label>
+        <div class="input-group mb-2 mr-sm-2">
+        <div class="input-group-prepend">
+            <div class="input-group-text">@</div>
+        </div>
+        <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username" name="instagram">
+        </div>
+
+        <div class="form-group">
+            <label for="exampleFormControlTextarea1">About you:</label>
+            <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="about"></textarea>
+        </div>
+        <div class="form-group">
+            <label for="exampleFormControlFile1">Upload Documents</label>
+            {{!-- <input type="file" class="form-control-file" id="exampleFormControlFile1" name="doc"> --}}
+        </div>
+        {{!-- <button type="submit" class="btn btn-light" id="submitstyle">Submit</button> --}}
+    </div>
+    </div>
+    <div class="modal-footer">
+        <input class="btn btn-secondary" type="submit" value="Sign Up" />
+    </div>
+    </div>      
+    <form method="post" enctype="multipart/form-data" action="/upload">
+    <input type="hidden" name="msgtype" value="2"/>
+    <input type="file" name="images" />
+    <input type="submit" value="Upload" />
+</form>
+
+</form>
+
+

@@ -4,6 +4,7 @@ var passport = require("passport");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
+var fileUpload = require("express-fileupload");
 
 var db = require("./models");
 
@@ -14,6 +15,7 @@ var PORT = process.env.PORT || 3000;
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+// app.use(fileUpload());
 
 // For Passport
 app.use(
@@ -34,10 +36,10 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-require("./routes/authRoutes")(app, passport);
+require("./routes/authRoutes")(app, passport, db.Chef);
 require("./routes/post-api-routes")(app);
 //load passport strategies
-require("./config/passport/passport.js")(passport, db.user);
+require("./config/passport/passport.js")(passport, db.user, db.Chef);
 
 var syncOptions = { force: false };
 
@@ -52,6 +54,7 @@ app.get("*", function(req, res) {
   res.render("404");
 });
 
+// moment().format('MMMM Do YYYY, h:mm:ss a');
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
   require("./erin_test.js")(db);
