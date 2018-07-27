@@ -11,7 +11,7 @@
     {{!-- <script src="main.js"></script> --}}
 
     <!-- Main Stylesheet File -->
-  {{!-- <link href="/styles/bootstrap-style.css" rel="stylesheet"> --}}
+  
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
@@ -28,6 +28,7 @@
 
 <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
 <link rel="stylesheet" type="text/css" media="screen" href="/styles/styles.css" />
+<link href="/styles/bootstrap-style.css" rel="stylesheet">
 
 </head>
 <body>
@@ -38,7 +39,7 @@
     <div class="container-fluid">
 
       <div id="logo" class="pull-left">
-        <h1><a href="#" class="scrollto">Secret Supper Club</a></h1>
+        <h1><a href="#" class="scrollto" id="loginpagetitle">Secret Supper Club</a></h1>
         <!-- Uncomment below if you prefer to use an image logo -->
         <!-- <a href="#intro"><img src="img/logo.png" alt="" title="" /></a>-->
       </div>
@@ -46,12 +47,13 @@
       <nav id="nav-menu-container">
         <ul class="nav-menu">
           <li class="menu-active"><a href="/">Home</a></li>
-          {{> auth/auth-block}}
+        <div class="menu-active" id="loginnavbar" align="right">{{> auth/auth-block}}</div>
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
   </header><!-- #header -->
 	
+<br>
 <br>
 <br>
 <div class="card">

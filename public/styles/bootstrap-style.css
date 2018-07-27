@@ -52,6 +52,14 @@ a:hover, a:active, a:focus {
   text-decoration: none;
 }
 
+#loginpagetitle {
+  color: salmon;
+  font-size: 30px;
+  text-shadow: 0 0 3px gray, 0 0 5px lightgray;
+  box-shadow: rgba(150, 151, 155, 0.25);
+  
+}
+
 p {
   padding: 0;
   margin: 0 0 30px 0;
@@ -63,6 +71,24 @@ h2, h3, h4, h5, h6 {
   margin: 0 0 20px 0;
   padding: 0;
 }
+.loginnavbar {
+  color: salmon;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12pt;
+}
+
+#loginnavbar {
+  color: salmon;
+  font-family: 'Raleway', sans-serif;
+  font-size: 12pt;
+}
+
+/* .loginnavbar:hover, .loginnavbar.active, .loginnavbar.focus {
+  color: salmon;
+  outline: none;
+  text-decoration: none;
+
+} */
 
 /* Back to top button */
 .back-to-top {
