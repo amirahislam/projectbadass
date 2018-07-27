@@ -12,7 +12,7 @@
 
     <!-- Main Stylesheet File -->
   {{!-- <link href="/styles/bootstrap-style.css" rel="stylesheet"> --}}
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
@@ -101,7 +101,7 @@
         
             <div class="form-group" align="left">
                 <div class="input-group date" id="datetimepicker1" data-target-input="nearest">
-                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1"/>
+                    <input type="text" class="form-control datetimepicker-input" data-target="#datetimepicker1" id="time"/>
                     <div class="input-group-append" data-target="#datetimepicker1" data-toggle="datetimepicker">
                         <div class="input-group-text"><i class="fa fa-calendar"></i></div>
                     </div>
@@ -126,18 +126,18 @@
     <div class="form-group" align="left">
             <label for="selectprice">Set Price</label>
               <select id="selectprice" name="selectprice" class="form-control">
-                <option value="1">$25</option>
-                <option value="2">$30</option>
-                <option value="3">$40</option>
-                <option value="4">$45</option>
-                <option value="5">$50</option>
-                <option value="6">$60</option>
-                <option value="7">$75</option>
-                <option value="8">$85</option>
-                <option value="9">$100</option>
-                <option value="10">$150</option>
-                <option value="11">$175</option>
-                <option value="12">$200</option>
+                <option value="25">$25</option>
+                <option value="30">$30</option>
+                <option value="40">$40</option>
+                <option value="45">$45</option>
+                <option value="50">$50</option>
+                <option value="60">$60</option>
+                <option value="75">$75</option>
+                <option value="85">$85</option>
+                <option value="100">$100</option>
+                <option value="150">$150</option>
+                <option value="175">$175</option>
+                <option value="200">$200</option>
               </select>
             </div>
         
@@ -162,5 +162,30 @@
 </div>
 <br>
 <br>  
+
+<script>
+  $("#submitstyle").on("click", function(event){
+    console.log($("select option:selected").val)
+    event.preventDefault();
+    console.log("somestuff");
+    var newEvent = {};
+    newEvent.title = $("#eventInput").val().trim();
+    newEvent.body = $("#eventTextarea").val().trim();
+    newEvent.photolink = $("#putImage").val().trim();
+    newEvent.date = $("#time").val().trim();
+    newEvent.menulink = $("#menuFile").val().trim();
+    newEvent.numberofGuests = $("#guestInput").val().trim();
+    newEvent.priceRange = $("#selectprice").val().trim();
+    newEvent.rules = $("#rulesTextarea").val().trim();
+
+    console.log(newEvent);
+
+    $.post("/api/posts", newEvent, function(req, res){
+      console.log("posting")
+    }).then(
+      console.log("it worked?")
+    )
+  })
+</script>
 </body>
 </html>
