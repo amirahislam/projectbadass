@@ -1,3 +1,5 @@
+
+
 {{#if notLoggedIn}}
     <li>
         <a href="/login">Login</a>    
@@ -5,7 +7,7 @@
 {{/if}}
               
 {{#if isLoggedIn}}
-    <li>{{msg}}, {{username}}</li>
-    <li><a href="/chefprofile">My profile</li>
-    <li><a href="/logout">Logout</li>
+    {{msg}}, {{username}}
+    <a href="/chefprofile">MY PROFILE</a>
+    <a href="/logout">LOGOUT</a>
 {{/if}}
