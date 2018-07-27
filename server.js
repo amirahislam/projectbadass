@@ -9,16 +9,16 @@ var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+var secretCode = process.env.secret || "keyboard cat";
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
 app.use(express.static("public"));
+// app.use(fileUpload());
 
 // For Passport
-app.use(
-  session({ secret: process.env.secret, resave: true, saveUninitialized: true })
-); // session secret
+app.use(session({ secret: secretCode, resave: true, saveUninitialized: true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 
@@ -34,10 +34,10 @@ app.set("view engine", "handlebars");
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
-require("./routes/authRoutes")(app, passport);
+require("./routes/authRoutes")(app, passport, db.Chef);
 require("./routes/post-api-routes")(app);
 //load passport strategies
-require("./config/passport/passport.js")(passport, db.user);
+require("./config/passport/passport.js")(passport, db.user, db.Chef);
 
 var syncOptions = { force: false };
 
@@ -52,6 +52,7 @@ app.get("*", function(req, res) {
   res.render("404");
 });
 
+// moment().format('MMMM Do YYYY, h:mm:ss a');
 // Starting the server, syncing our models ------------------------------------/
 db.sequelize.sync().then(function() {
   require("./erin_test.js")(db);
