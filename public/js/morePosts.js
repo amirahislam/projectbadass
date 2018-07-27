@@ -9,8 +9,7 @@ $(document).ready(function() {
     $.ajax("/api/posts/more/" + lastDisplayPostId, {
       type: "GET"
     }).then(function(data) {
-      data = data.slice(data.indexOf("</title>") + 8);
-
+      data = data.slice(data.indexOf("<body>") + 6, data.indexOf("</body>"));
       $(".posts-container").append(data);
       $(".posts-container").append($("#loadMore"));
       $("#loadMore").remove();

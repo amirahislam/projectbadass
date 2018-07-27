@@ -4,12 +4,12 @@ var passport = require("passport");
 var session = require("express-session");
 var bodyParser = require("body-parser");
 var exphbs = require("express-handlebars");
-var fileUpload = require("express-fileupload");
 
 var db = require("./models");
 
 var app = express();
 var PORT = process.env.PORT || 3000;
+var secretCode = process.env.secret || "keyboard cat";
 
 // Middleware
 app.use(bodyParser.urlencoded({ extended: false }));
@@ -18,9 +18,7 @@ app.use(express.static("public"));
 // app.use(fileUpload());
 
 // For Passport
-app.use(
-  session({ secret: process.env.secret, resave: true, saveUninitialized: true })
-); // session secret
+app.use(session({ secret: secretCode, resave: true, saveUninitialized: true })); // session secret
 app.use(passport.initialize());
 app.use(passport.session()); // persistent login sessions
 

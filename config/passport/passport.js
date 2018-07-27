@@ -7,17 +7,25 @@ module.exports = function(passport, user, chef) {
   var LocalStrategy = require("passport-local").Strategy;
 
   function getChefData(email, req) {
-    var img = req.files.image[0];
-    var doc = req.files.doc[0];
+    var img = "";
+    var doc = "";
+    // check if user send files to server
+    if (req.files) {
+      img = req.files.image ? req.files.image[0] : "";
+      img = img.path;
+      doc = req.files.doc ? req.files.doc[0] : "";
+      doc = doc.path;
+    }
+
     return {
       email: email,
       firstname: req.body.firstname,
       lastname: req.body.lastname,
-      linkToImage: img.path,
+      linkToImage: img,
       twitterLink: req.body.twitter,
       instagramLink: req.body.instagram,
       about: req.body.about,
-      docImage: doc.path
+      docImage: doc
     };
   }
 
@@ -72,9 +80,7 @@ module.exports = function(passport, user, chef) {
             });
           } else {
             var userPassword = generateHash(password);
-
             var userData = getUserData(email, userPassword, req);
-
             var chefData = getChefData(email, req);
 
             // Save user login info into User table
