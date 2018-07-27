@@ -66,6 +66,8 @@
           <li><a href="#portfolio">Supper Clubs</a></li>  
           <li><a href="#contact">Chef Profiles</a></li>
           {{!-- <li>{{> auth/auth-block}}</li> --}}
+          <li><a href="/chefprofile">Chef Profiles</a></li>
+          {{> auth/auth-block}}
         </ul>
       </nav><!-- #nav-menu-container -->
     </div>
@@ -276,89 +278,8 @@
 
       </div>
     </section><!-- #team -->
-    <!--==========================
-      Chef Profiles
-    ============================-->
 
-    
-
-        <!-- Button trigger modal -->
-        <br>
-        <br>
-    <form align="center">
-<button type="button" class="btn btn-light" data-toggle="modal" data-target="#exampleModal" id="submitprofile" >
-  Submit Profile
-</button>
-</form>
-<br>
-<br>
-
-
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Chef Profile Application</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body">
-
-    <form>
-  <div class="form-group">
-    <label for="name">Name (Required)</label>
-    <input type="name" class="form-control" id="inputName" aria-describedby="nameHelp" placeholder="Enter Name">
-    </div>
-    <div class="form-group">
-    <label for="pasteImage">Link to image (Required)</label>
-    <input type="putImage" class="form-control" id="inputImage" aria-describedby="nameHelp" placeholder="Paste Image Link">
-  </div>
-
-  <div class="form-group">
-    <label for="exampleFormControlInput1">Email address</label>
-    <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
-  </div>
-
-
-  <label for="inlineFormInputGroupUsername2">Twitter Handle</label>
-  <div class="input-group mb-2 mr-sm-2">
-    <div class="input-group-prepend">
-      <div class="input-group-text">@</div>
-    </div>
-
-    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-  </div>
-  
-  <label for="inlineFormInputGroupUsername2">Instagram Handle</label>
-  <div class="input-group mb-2 mr-sm-2">
-    <div class="input-group-prepend">
-      <div class="input-group-text">@</div>
-    </div>
-    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username">
-  </div>
-
-  <div class="form-group">
-    <label for="exampleFormControlTextarea1">About you:</label>
-    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
-  </div>
-   <div class="form-group">
-    <label for="exampleFormControlFile1">Upload Documents</label>
-    <input type="file" class="form-control-file" id="exampleFormControlFile1">
-  </div>
-  <button type="submit" class="btn btn-light" id="submitstyle">Submit</button>
-</form>
-</div>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        {{!-- <button type="button" class="btn btn-primary">Save changes</button> --}}
-      </div>
-    </div>      
-    </div>
-  </section><!-- #intro -->
+  {{!-- </section><!-- #intro --> --}}
 
   <main id="main">
 
@@ -458,14 +379,9 @@
   <!-- Template Main Javascript File -->
   <script src="/js/main.js"></script>
 
-</body>
-</html>
 
-
-
-
-      </div>
-    </section><!-- #contact -->
+      {{!-- </div> --}}
+    {{!-- </section><!-- #contact --> --}}
 
   </main>
 
