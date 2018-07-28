@@ -18,7 +18,9 @@ module.exports = function(app, passport, chef) {
   });
 
   app.get("/chefprofile", isLoggedIn, function(req, res) {
+    console.log("---!!!!!------------");
     if (req.isAuthenticated()) {
+      console.log("---???????------------");
       chef
         .findOne({
           where: {
@@ -26,11 +28,18 @@ module.exports = function(app, passport, chef) {
           }
         })
         .then(function(chefData) {
+          console.log("----------------------");
+          console.log(chefData.linkToImage);
           if (chefData) {
-            console.log(req.user);
+            console.log("----------------------");
+            console.log(chefData.linkToImage);
+            var chefImg = chefData.linkToImage
+              ? chefData.linkToImage.slice(6)
+              : "#";
+
             res.render("chefprofile", {
               msg: "Welcome",
-              image: chefData.linkToImage.slice(6),
+              image: chefImg,
               firstname: chefData.firstname,
               lastname: chefData.lastname,
               email: chefData.email,

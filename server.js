@@ -59,7 +59,7 @@ app.get("*", function(req, res) {
 // Starting the server, syncing our models ------------------------------------/
 
 db.sequelize.sync().then(function() {
-  require("./erin_test.js")(db);  
+  require("./erin_test.js")(db);
   // require("./invite_test.js")(db);
 
   app.listen(PORT, function(err) {
