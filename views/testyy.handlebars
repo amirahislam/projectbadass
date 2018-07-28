@@ -1,5 +1,3 @@
-<link href="/styles/bootstrap-style.css" rel="stylesheet">
-
 {{#each posts}}
     <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp post">
         <div class="posts-wrap" post-id={{postId}}>
@@ -55,10 +53,9 @@
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
-                        <br>
-                        <br>
-                        <p align="center">
-                            <a class="btn btn-light" id="submitprofile" data-toggle="collapse" href={{concat "#collapse" postId}}>
+
+                        <p>
+                            <a class="btn btn-primary" data-toggle="collapse" href={{concat "#collapse" postId}}>
                                 Reserve your seat
                             </a>
                         </p>
@@ -68,22 +65,21 @@
                                     <div class="container">
                                         <div class="row">
                                             <div class="col">
-                                                <input type="text" class="form-control" id="firstName" placeholder="First name">
+                                                <input type="text" class="form-control" placeholder="First name">
                                             </div>
                                             <div class="col">
-                                                <input type="text" class="form-control" id="lastName" placeholder="Last name">
+                                                <input type="text" class="form-control" placeholder="Last name">
                                             </div>
                                         </div>
-                                        <div class="form-group" align="left">
+                                        <div class="form-group">
                                             <label for="exampleFormControlInput1">Email address</label>
-                                            <input type="email" class="form-control" id="emailInput" placeholder="name@example.com">
+                                            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                                         </div>
-                                        <div class="form-group" align="left">
+                                        <div class="form-group">
                                             <label for="formGroupExampleInput">Phone Number</label>
-                                            <input type="text" class="form-control" id="phoneInput" placeholder="Example input">
+                                            <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
                                         </div>
-
-                                        <button type="submit" class="btn btn-light" id="submitprofile">Submit</button>
+                                        <button type="submit" class="btn btn-primary">Submit</button>
                                     </div>
                                 </form>
                             </div>
@@ -100,6 +96,4 @@
     </div>
 {{/each}}
 
-{{!-- <div align="center"> --}}
 <button id="loadMore">More</button>
-</div>
