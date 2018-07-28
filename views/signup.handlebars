@@ -1,34 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Login V9</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	{{!-- <link rel="stylesheet" type="text/css" href="fonts/font-awesome-4.7.0/css/font-awesome.min.css"> --}}
+<!--===============================================================================================-->
+	{{!-- <link rel="stylesheet" type="text/css" href="fonts/iconic/css/material-design-iconic-font.min.css"> --}}
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="/styles/login-util.css">
+	<link rel="stylesheet" type="text/css" href="/styles/login-main.css">
+<!--===============================================================================================-->
+
+<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+
+<link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,700,700i|Montserrat:300,400,500,700" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css?family=Dancing+Script|Great+Vibes|Sacramento" rel="stylesheet">
+<link href="/styles/bootstrap-style.css" rel="stylesheet">
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+</head>
+<body>
+    <br>
+    <div class="card-signup">
 <div class="container">
-    <div class="row">
-        <div class="col-10">
+    {{!-- <div class="row"> --}}
             <form method="post" enctype="multipart/form-data" action="/signup">
                 <h5>Chef Profile Application</h5>
 
                 {{!-- Name --}}
-                <div class="form-group">
+
+            
+                <div class="row">
+                <div class="col">
+                <input type="text" class="form-control" id="firstname"  name="firstname" placeholder="First name">
+                </div>
+                <div class="col">
+                <input type="text" class="form-control" id="lastname" name="lastname" placeholder="Last name">
+                </div>
+                </div>
+                {{!-- <div class="form-group">
                     <label for="name">First Name (Required)</label>
                     <input type="text" id="firstname"  name="firstname">
                 </div>
                 <div class="form-group">
                     <label for="name">Last Name (Required)</label>
                     <input type="text" id="lastname" name="lastname">
-                </div>
+                </div> --}}
 
                 {{!-- Email --}}
+                <br>
                 <div class="form-group">
+                <label for="exampleInputEmail1">Email address</label>
+                <input type="email" class="form-control" id="exampleInputEmail1" name="email" id="email" aria-describedby="emailHelp" placeholder="Enter email">
+                <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+  
+                {{!-- <div class="form-group">
                     <label for="exampleFormControlInput1">Email address</label>
                     <input type="email" name="email" id="email" placeholder="name@example.com">
-                </div>
+                </div> --}}
 
                 {{!-- Password --}}
+
                 <div class="form-group">
+                <label for="exampleInputPassword1">Password</label>
+                <input type="password" class="form-control" id="exampleInputPassword1" name="password" placeholder="Password">
+                </div>
+                {{!-- <div class="form-group">
                     <label for="exampleFormControlInput1">Password</label>
                     <input type="password" name="password">
-                </div>
+                </div> --}}
 
                 {{!-- Chef's image --}}
                 <div class="form-group">
-                    <label for="pasteImage">Link to image (Required)</label>
+                    <label for="pasteImage">Upload Your Photo</label>
+                    <br>
                     <input type="file"  id="image"  name="image">    
                 </div>
 
@@ -59,11 +122,19 @@
                 {{!-- Upload doc --}}
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Upload Documents</label>
+                    <br>
                     <input type="file"  name="doc">
+                    <small id="emailHelp" class="form-text text-muted">Your food handler card. </small>
                 </div>
-
-                <input type="submit" value="Sign up" />
+                 <div align="center">
+                <input type="submit" class="btn btn-light" id="submitstyle" value="Sign up"/></div>
             </form>
+        
         </div>
     </div>
 </div>
+</div>
+<br>
+</body>
+
+</html>
