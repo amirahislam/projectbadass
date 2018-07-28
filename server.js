@@ -36,6 +36,7 @@ require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
 require("./routes/authRoutes")(app, passport, db.Chef);
 require("./routes/post-api-routes")(app);
+require("./routes/invite-api-routes")(app);
 //load passport strategies
 require("./config/passport/passport.js")(passport, db.user, db.Chef);
 
@@ -54,8 +55,11 @@ app.get("*", function(req, res) {
 
 // moment().format('MMMM Do YYYY, h:mm:ss a');
 // Starting the server, syncing our models ------------------------------------/
+
 db.sequelize.sync().then(function() {
-  require("./erin_test.js")(db);
+  require("./erin_test.js")(db);  
+  // require("./invite_test.js")(db);
+
   app.listen(PORT, function(err) {
     if (err) {
       throw err;
