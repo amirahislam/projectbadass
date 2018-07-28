@@ -185,7 +185,7 @@
       
       </div>
       <div class="modal-footer">
-        
+        <button type="button" class="btn btn-info" id="sendtxtbtn">Send Text to Group</button>
         <button type="button" class="btn btn-success" data-dismiss="modal">Approve</button>
         <button type="button" class="btn btn-danger" data-dismiss="modal">Ignore</button>
         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -199,6 +199,14 @@
 <br>  
 
 <script>
+
+
+
+
+  const accountSid = 'AC1de2544bfb8c982ca098b2ac65afc8dd';
+  const authToken = 'eb137ae5c7c451722e5bafdf326e292f';
+  const client = require('twilio')(accountSid, authToken);
+
 
   
 
@@ -228,11 +236,29 @@
   $("#viewlistbtn").on("click", function(event){
     console.log("ok");
     event.preventDefault();
-   
-   
-
-  
     });
+ 
+
+  $("#sendtxtbtn").on("click", function(event){
+    event.preventDefault();
+    sendText();
+
+
+  })
+
+
+
+    function sendText(){
+      client.messages
+      .create({
+        body: "See yall at dinner!!!",
+        from: '+17372002517',
+        to: '+15122898126'
+      })
+      .then(message => console.log(message.sid + "\n" + message.body + "\n" + "Message sent to ..."))
+      .done();
+    };
+
 
     function runWaitListQuery() {
       // Here we get the location of the root page.

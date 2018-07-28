@@ -40,6 +40,8 @@ require("./routes/invite-api-routes")(app);
 //load passport strategies
 require("./config/passport/passport.js")(passport, db.user, db.Chef);
 
+// require('dotenv').config({ path: require('find-config')('.env') })
+
 var syncOptions = { force: false };
 
 // If running a test, set syncOptions.force to true
