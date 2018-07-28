@@ -28,9 +28,13 @@ module.exports = function(app, passport, chef) {
         .then(function(chefData) {
           if (chefData) {
             console.log(req.user);
+            var chefImg = chefData.linkToImage
+              ? chefData.linkToImage.slice(6)
+              : "";
+
             res.render("chefprofile", {
               msg: "Welcome",
-              image: chefData.linkToImage.slice(6),
+              image: chefImg,
               firstname: chefData.firstname,
               lastname: chefData.lastname,
               email: chefData.email,
