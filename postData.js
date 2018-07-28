@@ -1,26 +1,26 @@
 module.exports = [
   {
     title: "Desi Treats",
-    body: "This table has really good food.",
+    body: "Bringing the tangy taste of Indian Street food to you.",
     photolink: "/images/panipuri.jpg",
     date: "20180101",
     menulink:
       "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
-    numberofGuests: "4",
+    numberofGuests: "12",
     priceRange: "25",
-    rules: "No food fighting."
+    rules: "This event is BYOD and recycle your bottles/cans."
   },
 
   {
     title: "All things Pasta",
-    body: "This table has really good food.",
+    body: "Three course meal of hand pulled pastas.",
     photolink: "/images/pasta.jpg",
     date: "20180101",
     menulink:
       "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
-    numberofGuests: "4",
-    priceRange: "25",
-    rules: "No food fighting."
+    numberofGuests: "10",
+    priceRange: "50",
+    rules: "This chef cannot accomodate food allergies."
   },
   {
     title: "Culinary Tour of Iran",
@@ -29,8 +29,8 @@ module.exports = [
     date: "20180101",
     menulink:
       "https://s3.envato.com/files/168511551/Preview%20Image%20Set/02_Restaurant%20Menu-01-01.jpg",
-    numberofGuests: "4",
-    priceRange: "25",
+    numberofGuests: "20",
+    priceRange: "35",
     rules: "No food fighting."
   },
   {
