@@ -13,6 +13,7 @@
     <!-- Main Stylesheet File -->
   
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60="crossorigin="anonymous"></script>
   {{!-- <link href="/styles/bootstrap-style.css" rel="stylesheet"> --}}
 <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
@@ -87,7 +88,7 @@
       <div class="modal-body">
          <div class="container">
 
-    <form>
+    <form name="event-form">
     <div class="form-group" align="left">
     <label for="eventInput">Event Name</label>
     <input type="text" class="form-control" id="eventInput" placeholder="Example input">
@@ -151,12 +152,12 @@
                 <textarea class="form-control" id="rulesTextarea" rows="3"></textarea>
               </div>
         
-    <button type="submit" class="btn btn-light" id="submitstyle">Submit</button>  
+    <button type="submit" value="Submit" class="btn btn-light" id="submitstyle" onclick="submitForm()">Submit</button>  
         </form>
     </div>
       </div>
       <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button id="closeBnt" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
         {{!-- <button type="button" class="btn btn-primary">Save changes</button> --}}
       </div>
     </div>
@@ -197,6 +198,7 @@
 </div>
 <br>
 <br>  
+</body>
 
 <script>
 
@@ -227,7 +229,11 @@
     console.log(newEvent);
 
     $.post("/api/posts", newEvent, function(req, res){
-      console.log("posting")
+      console.log(res)
+      if(res === "success"){
+        alert("Created event!");
+        $("#closeBnt").click();
+      }
     }).then(
       console.log("it worked?")
     )
@@ -291,9 +297,12 @@
 
 runWaitListQuery();
 
-  
-
 
 </script>
-</body>
+{{!-- <script>
+    function submitForm() {
+    document.event-form.submit();
+    document.event-form.reset();
+    }
+</script> --}}
 </html>
