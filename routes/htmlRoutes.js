@@ -45,8 +45,4 @@ module.exports = function(app) {
       });
     });
   });
-<<<<<<< HEAD
 };
-=======
-};
->>>>>>> ec5b6be60c4cea6e89d55e5105a13c7609fe3092
