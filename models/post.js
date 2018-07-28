@@ -54,12 +54,12 @@ module.exports = function(sequelize, DataTypes) {
     }
   });
   // Associate a post with a Chef
-    Post.associate = function(models) {
-      Post.belongsTo(models.Chef, {
-        foreignKey: {
-          allowNull: false
-        }
-      });
-    };
+  Post.associate = function(models) {
+    Post.belongsTo(models.Chef, {
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
   return Post;
 };
