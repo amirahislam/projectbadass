@@ -162,12 +162,46 @@
     </div>
   </div>
 </div>
-  <p><button type="button" class="btn btn-light" id="viewlistbtn">View Waiting List</button></p>
+
+<!-- Waitlist trigger modal -->
+  <p><button type="button" class="btn btn-light" id="viewlistbtn"  data-toggle="modal" data-target="#waitlistModal">View Waiting List</button></p>
+
+
+
+<!-- Waitlist Modal -->
+<div class="modal fade" id="waitlistModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLongTitle" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLongTitle">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="waitlist-body">
+      
+
+    
+      
+      </div>
+      <div class="modal-footer">
+        
+        <button type="button" class="btn btn-success" data-dismiss="modal">Approve</button>
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Ignore</button>
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        
+      </div>
+    </div>
+  </div>
+</div>
 </div>
 <br>
 <br>  
 
 <script>
+
+  
+
   $("#submitstyle").on("click", function(event){
     console.log($("select option:selected").val)
     event.preventDefault();
@@ -190,6 +224,50 @@
       console.log("it worked?")
     )
   })
+
+  $("#viewlistbtn").on("click", function(event){
+    console.log("ok");
+    event.preventDefault();
+   
+   
+
+  
+    });
+
+    function runWaitListQuery() {
+      // Here we get the location of the root page.
+      // We use this instead of explicitly saying the URL is localhost:3001 because the url will change when we deploy.
+      var currentURL = window.location.origin;
+
+    $.ajax({ url: currentURL + "/api/invites", method: "GET" })
+        .then(function(tableData) {
+        // Here we are logging the URL so we have access to it for troubleshooting
+          console.log("------------------------------------");
+          console.log("URL: " + currentURL + "/api/invites");
+          console.log("------------------------------------");
+          // Here we then log the NYTData to console, where it will show up as an object.
+          console.log(tableData);
+          console.log("------------------------------------");
+          // Loop through and display each of the customers
+          for (var i = 0; i < tableData.length; i++) {
+          // Create the HTML Well (Section) and Add the table content for each reserved table
+            var tableSection = $("<div>");
+            tableSection.addClass("well");
+            tableSection.attr("id", "tableWell-" + i + 1);
+            $("#waitlist-body").append(tableSection);
+            var tableNumber = i + 1;
+            // Then display the remaining fields in the HTML (Section Name, Date, URL)
+            $("#tableWell-" + i + 1).append("<h5><span class='label label-primary'>" + tableNumber + "</span> | " + tableData[i].firstname + " " + tableData[i].lastname +" | " + tableData[i].email + " | " + tableData[i].phonenumber + "</h5>" + "<br>");
+          }
+        });
+    
+    } 
+
+runWaitListQuery();
+
+  
+
+
 </script>
 </body>
 </html>
