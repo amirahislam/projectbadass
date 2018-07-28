@@ -107,7 +107,12 @@ $(".profile").click(function(event){
     user.instagram = $(".instagram").val().trim();
     user.bio = $(".bio").val().trim();
     console.log(user);
+<<<<<<< HEAD
     $.post("/profile", user, function(req, res){
+=======
+
+    $.post("/api/profile", user, function(req, res){
+>>>>>>> abf82b749b3bf1593046117bde425fa2eeb50e6f
       console.log("more things")
     }).then(
       res.render("index");

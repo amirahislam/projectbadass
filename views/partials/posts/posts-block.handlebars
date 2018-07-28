@@ -1,3 +1,5 @@
+<link href="/styles/bootstrap-style.css" rel="stylesheet">
+
 {{#each posts}}
     <div class="col-lg-4 col-md-6 portfolio-item filter-app wow fadeInUp post">
         <div class="posts-wrap" post-id={{postId}}>
@@ -53,9 +55,10 @@
                                 <span class="sr-only">Next</span>
                             </a>
                         </div>
-
-                        <p>
-                            <a class="btn btn-primary" data-toggle="collapse" href={{concat "#collapse" postId}}>
+                        <br>
+                        <br>
+                        <p align="center">
+                            <a class="btn btn-light" id="submitprofile" data-toggle="collapse" href={{concat "#collapse" postId}}>
                                 Reserve your seat
                             </a>
                         </p>
@@ -71,15 +74,15 @@
                                                 <input type="text" class="form-control" placeholder="Last name">
                                             </div>
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" align="left">
                                             <label for="exampleFormControlInput1">Email address</label>
                                             <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="name@example.com">
                                         </div>
-                                        <div class="form-group">
+                                        <div class="form-group" align="left">
                                             <label for="formGroupExampleInput">Phone Number</label>
                                             <input type="text" class="form-control" id="formGroupExampleInput" placeholder="Example input">
                                         </div>
-                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                        <button type="submit" class="btn btn-light" id="submitprofile">Submit</button>
                                     </div>
                                 </form>
                             </div>

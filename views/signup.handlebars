@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html>
  
@@ -21,3 +22,74 @@
 </body>
  
 </html>
+=======
+<div class="container">
+    <div class="row">
+        <div class="col-10">
+            <form method="post" enctype="multipart/form-data" action="/signup">
+                <h5>Chef Profile Application</h5>
+
+                {{!-- Name --}}
+                <div class="form-group">
+                    <label for="name">First Name (Required)</label>
+                    <input type="text" id="firstname"  name="firstname">
+                </div>
+                <div class="form-group">
+                    <label for="name">Last Name (Required)</label>
+                    <input type="text" id="lastname" name="lastname">
+                </div>
+
+                {{!-- Email --}}
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Email address</label>
+                    <input type="email" name="email" id="email" placeholder="name@example.com">
+                </div>
+
+                {{!-- Password --}}
+                <div class="form-group">
+                    <label for="exampleFormControlInput1">Password</label>
+                    <input type="password" name="password">
+                </div>
+
+                {{!-- Chef's image --}}
+                <div class="form-group">
+                    <label for="pasteImage">Link to image (Required)</label>
+                    <input type="file"  id="image"  name="image">    
+                </div>
+
+                {{!-- Twitter --}}
+                <label for="inlineFormInputGroupUsername2">Twitter Handle</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                    </div>
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username" name="twitter">
+                </div>
+
+                {{!-- Instagram --}}
+                <label for="inlineFormInputGroupUsername2">Instagram Handle</label>
+                <div class="input-group mb-2 mr-sm-2">
+                    <div class="input-group-prepend">
+                        <div class="input-group-text">@</div>
+                    </div>
+                    <input type="text" class="form-control" id="inlineFormInputGroupUsername2" placeholder="Username" name="instagram">
+                </div>
+
+                {{!-- About --}}
+                <div class="form-group">
+                    <label for="exampleFormControlTextarea1">About you:</label>
+                    <textarea class="form-control" id="exampleFormControlTextarea1" rows="3" name="about"></textarea>
+                </div>
+
+                {{!-- Upload doc --}}
+                <div class="form-group">
+                    <label for="exampleFormControlFile1">Upload Documents</label>
+                    <input type="file"  name="doc">
+                </div>
+
+                <input type="submit" value="Sign up" />
+            </form>
+        </div>
+    </div>
+</div>
+>>>>>>> abf82b749b3bf1593046117bde425fa2eeb50e6f

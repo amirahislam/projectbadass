@@ -59,10 +59,27 @@ module.exports = function(app) {
 
   // Create a new post
   app.post("/api/posts", function(req, res) {
+    console.log(req.body);
+    // res.end();
     db.Post.create(req.body).then(function(dbPost) {
       res.json(dbPost);
     });
   });
+
+  // module.exports = function(db) {
+  //   db.sequelize.sync({ force: true }).then(function() {
+  //     // Create a set of test posts
+  //     data.forEach(function(d) {
+  //       db.Post.create(d)
+  //         .then(function() {
+  //           //console.log(response);
+  //         })
+  //         .catch(function(error) {
+  //           console.log(error);
+  //         });
+  //     });
+  //   });
+  // };
 
   // Delete a specific post by postid
   app.delete("/api/posts/:id", function(req, res) {
