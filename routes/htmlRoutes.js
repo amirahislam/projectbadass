@@ -18,7 +18,7 @@ module.exports = function(app) {
       if (req.isAuthenticated()) {
         res.render("index", {
           msg: "Welcome",
-          username: req.user.email,
+          username: req.user.firstname + " " + req.user.lastname,
           isLoggedIn: true,
           notLoggedIn: false,
           posts: data,
