@@ -35,12 +35,9 @@ module.exports = function(app) {
     });
   });
 
-<<<<<<< HEAD
-=======
-
 
   // Load example page and pass in an example by id
->>>>>>> 538da0b61cbc2842934066a929cdb2e9dd4069d8
+
   app.get("/example/:id", function(req, res) {
     db.Example.findOne({ where: { id: req.params.id } }).then(function(
       dbExample
