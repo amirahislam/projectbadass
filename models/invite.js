@@ -21,16 +21,16 @@ module.exports = function(sequelize, DataTypes) {
         type: DataTypes.STRING,
         allowNull: false, 
         unique: true,
-        validate: {
-          isEmail: true
-      }
+      //   validate: {
+      //     isEmail: true
+      // }
       },
       
       phonenumber: {
           type: DataTypes.STRING,
-          validate: {
-            isNumeric: true
-        }
+        //   validate: {
+        //     isNumeric: true
+        // }
       }
     });
     // Associate an invite with a post
